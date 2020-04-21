@@ -1,0 +1,177 @@
+deploy_configs:
+  ads:
+    image_name: ads
+    hosts:
+      - t09
+
+  adseventsloader2:
+    image_name: adseventsloader2
+    hosts:
+      - t08
+
+  api:
+    image_name: api
+    hosts:
+      - t02
+      - t05
+
+  app:
+    image_name: app
+    hosts:
+      - t01
+      - t04
+
+  appdbmigration:
+    image_name: appdbmigration
+    hosts:
+      - t02
+
+  appui:
+    image_name: appui
+    hosts:
+      - t01
+      - t04
+  
+  cms:
+    image_name: cms
+    hosts:
+      - t06
+
+  collectorentry:
+    image_name: collectorentry
+    hosts:
+      - t08
+
+  customer:
+    image_name: customer # "nexus.xiso.cn/<env>/${image_name}:${tag}"
+    hosts:
+      - t01
+      - t04
+
+  customer_backend:
+    image_name: customer
+    hosts:
+      - t05
+      - t07
+  
+  customerdbmigration:
+    image_name: customerdbmigration
+    hosts:
+      - t01
+
+  etlv2:
+    image_name: etlv2
+    hosts:
+      - t01
+      - t02
+
+  eventjob:
+    image_name: eventjob
+    hosts:
+      - t07
+
+  file:
+    image_name: file
+    hosts:
+      - t06
+
+  hosting:
+    image_name: hosting
+    hosts:
+      - t01
+      - t04
+
+  job:
+    image_name: job
+    hosts:
+      - t07
+
+  kanglai:
+    image_name: kanglai
+    hosts:
+      - t02
+      - t05
+
+  loyaltyv2:
+    image_name: loyaltyv2
+    hosts:
+      - t07
+
+  maxwell:
+    image_name: maxwell
+    hosts:
+      - t01
+
+  mqmigration:
+    image_name: mqmigration
+    hosts:
+      - t05
+
+  plugin:
+    image_name: plugin
+    hosts:
+      - t04
+      - t09
+
+  reactflow2:
+    image_name: reactflow2
+    hosts:
+      - t05
+      - t06
+      - t07
+
+  referrer:
+    image_name: referrer
+    hosts:
+      - t07
+
+  scheduler:
+    image_name: scheduler
+    hosts:
+      - t03
+
+  sms:
+    image_name: sms
+    hosts:
+      - t02
+      - t05
+
+  tms:
+    image_name: tms
+    hosts:
+      - t02
+
+  urlshortener:
+    image_name: urlshortener
+    hosts:
+      - t09
+
+  webhook:
+    image_name: webhook
+    hosts:
+      - t07
+
+  wechat:
+    image_name: wechat
+    hosts:
+      - t06
+      - t04
+
+  wechatcorp:
+    image_name: wechatcorp
+    hosts:
+      - t09
+
+  wechatpay:
+    image_name: wechatpay
+    hosts:
+      - t07
+
+  wechatwork:
+    image_name: wechatwork
+    hosts:
+      - t09
+
+  
+
+

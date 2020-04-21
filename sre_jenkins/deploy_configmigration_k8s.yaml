@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "configmigration"
+  namespace: "validation"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "configmigration"
+  template:
+    metadata:
+      labels:
+        app: "configmigration"
+    spec:
+      imagePullSecrets:
+      - name: xsio-registry-secret
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: /opt/log/stash
+          type: DirectoryOrCreate
+      - name: tmp-volume
+        hostPath:
+          path: /opt/tmp
+          type: DirectoryOrCreate
+      hostAliases:
+      - ip: "10.10.0.2"
+        hostnames:
+        - "hadoop01"
+      - ip: "10.10.0.3"
+        hostnames:
+        - "hadoop02"
+      - ip: "10.10.0.4"
+        hostnames:
+        - "hadoop03"
+      - ip: "192.168.11.167"
+        hostnames:
+        - "prodvpc-hadoop01"
+      - ip: "192.168.11.168"
+        hostnames:
+        - "prodvpc-hadoop02"
+      - ip: "192.168.11.169"
+        hostnames:
+        - "prodvpc-hadoop03"
+      - ip: "192.168.11.170"
+        hostnames:
+        - "prodvpc-hadoop04"
+      - ip: "192.168.11.172"
+        hostnames:
+        - "prodvpc-hadoop05"
+      - ip: "192.168.11.173"
+        hostnames:
+        - "prodvpc-hadoop06"
+      - ip: "192.168.11.174"
+        hostnames:
+        - "prodvpc-hadoop07"
+      - ip: "192.168.11.175"
+        hostnames:
+        - "prodvpc-hadoop08"
+      containers:
+      - name: "configmigration"
+        image: "nexus-public.xsio.cn/validation/configmigration:367d81148b2bcc564735a6a0f68112555980a0e1"
+        imagePullPolicy: Always
+        ports:
+        - name: web
+          containerPort: 59998
+        env:
+        - name: version
+          value: "367d81148b2bcc564735a6a0f68112555980a0e1"
+        - name: dataSource.url
+          value: jdbc:mysql://rdskmsb1niuc6p91wg31.mysql.rds.aliyuncs.com:3306/sre?useUnicode=yes&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+        - name: dataSource_username
+          value: xiaoshu
+        - name: dataSource_password
+          value: Xiaoshu406_
+        envFrom:
+        - configMapRef:
+            name: global-config
+        - configMapRef:
+            name: "configmigration-config"
+        volumeMounts:
+        - mountPath: /opt/log/stash
+          name: log-volume
+        - mountPath: /var/tmp
+          name: tmp-volume
+        - mountPath: /tmp
+          name: tmp-volume
+        resources:
+          requests:
+            memory: "2048Mi"
+            cpu: "125m"
+          limits:
+            memory: "4096Mi"
+            cpu: "1000m"
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: web
+          initialDelaySeconds: 60
+          periodSeconds: 30
+        livenessProbe:
+          tcpSocket:
+            port: web
+          initialDelaySeconds: 60
+          periodSeconds: 30

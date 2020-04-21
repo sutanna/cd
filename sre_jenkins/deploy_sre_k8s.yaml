@@ -1,0 +1,131 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "angel"
+  namespace: "validation"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "angel"
+  template:
+    metadata:
+      labels:
+        app: "angel"
+    spec:
+      imagePullSecrets:
+      - name: xsio-registry-secret
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: /opt/log/stash
+          type: DirectoryOrCreate
+      - name: tmp-volume
+        hostPath:
+          path: /opt/tmp
+          type: DirectoryOrCreate
+      hostAliases:
+      - ip: "10.10.0.2"
+        hostnames:
+        - "hadoop01"
+      - ip: "10.10.0.3"
+        hostnames:
+        - "hadoop02"
+      - ip: "10.10.0.4"
+        hostnames:
+        - "hadoop03"
+      - ip: "10.10.0.6"
+        hostnames:
+        - "hadoop04"
+      - ip: "10.10.0.7"
+        hostnames:
+        - "hadoop05"
+      - ip: "10.10.0.8"
+        hostnames:
+        - "hadoop06"
+      - ip: "192.168.11.167"
+        hostnames:
+        - "prodvpc-hadoop01"
+      - ip: "192.168.11.168"
+        hostnames:
+        - "prodvpc-hadoop02"
+      - ip: "192.168.11.169"
+        hostnames:
+        - "prodvpc-hadoop03"
+      - ip: "192.168.11.170"
+        hostnames:
+        - "prodvpc-hadoop04"
+      - ip: "192.168.11.172"
+        hostnames:
+        - "prodvpc-hadoop05"
+      - ip: "192.168.11.173"
+        hostnames:
+        - "prodvpc-hadoop06"
+      - ip: "192.168.11.174"
+        hostnames:
+        - "prodvpc-hadoop07"
+      - ip: "192.168.11.175"
+        hostnames:
+        - "prodvpc-hadoop08"
+      containers:
+      - name: "angel"
+        image: "nexus-public.xsio.cn/test/angel:393f4a56d18bd15c3dbfdca3079eaebb6bb4c9ca"
+        imagePullPolicy: Always
+        ports:
+        - name: web
+          containerPort: 59999
+        env:
+        - name: version
+          value: ""
+        - name: jenkins.deployServiceUrl
+          value: http://blueocean.xsio.cn/job/deploy/job/master/
+        - name: jenkins.deploySparkJobUrl
+          value: http://blueocean.xsio.cn/job/deploy-validation-spark/
+        - name: jenkins.applyConfigMapJobUrl
+          value: http://blueocean.xsio.cn/job/configmap/job/validation/
+        - name: jenkins.username
+          value: zhaoxiang96
+        - name: jenkins.apiToken
+          value: "1140d6eb3b11d5f111ba2c7058d647d23a"
+        - name: dataSource.url
+          value: jdbc:mysql://rdskmsb1niuc6p91wg31.mysql.rds.aliyuncs.com:3306/sre?useUnicode=yes&characterEncoding=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+        - name: dataSource_username
+          value: xiaoshu
+        - name: dataSource_password
+          value: Xiaoshu406_
+        - name: redis_host
+          value: 61140d4ee77349ab982.redis.rds.aliyuncs.com
+        - name: redis_password
+          value: Xiaoshu406
+        - name: showComponentMenu
+          value: "false"
+        envFrom:
+        - configMapRef:
+            name: global-config
+        - configMapRef:
+            name: "angel-config"
+        volumeMounts:
+        - mountPath: /opt/log/stash
+          name: log-volume
+        - mountPath: /var/tmp
+          name: tmp-volume
+        - mountPath: /tmp
+          name: tmp-volume
+        resources:
+          requests:
+            memory: "2048Mi"
+            cpu: "125m"
+          limits:
+            memory: "4096Mi"
+            cpu: "1000m"
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: web
+          initialDelaySeconds: 60
+          periodSeconds: 30
+        livenessProbe:
+          tcpSocket:
+            port: web
+          initialDelaySeconds: 60
+          periodSeconds: 30

@@ -1,0 +1,19 @@
+- hosts: '{{ host }}'
+  remote_user: root
+  gather_facts: no
+  serial: 1
+  tasks: 
+    - name: deploy normal service
+      include_tasks: ./deploy_stateless.yml
+      when:
+        - not (service_name is search("reactflow2"))
+        - service_name != 'hadoopods'
+    - name: deploy reactflow service
+      include_tasks: ./deploy_reactflow.yml
+      when: service_name is search("reactflow2")
+    - name: deploy hadoopods service
+      include_tasks: ./deploy_hadoopods.yml
+      when: service_name == 'hadoopods' 
+
+ 
+

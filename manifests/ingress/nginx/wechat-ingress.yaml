@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wechat-ingress
+  namespace: test
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+  - host: wechat.dmhub.cn
+    http:
+      paths:
+      - path: /callback
+        backend:
+          serviceName: wechat 
+          servicePort: 18002
+      - path: /callbackv1
+        backend:
+          serviceName: wechat
+          servicePort: 18002
+      - path: /auth
+        backend:
+          serviceName: wechat
+          servicePort: 18002
+

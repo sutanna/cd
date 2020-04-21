@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: filebeat
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: filebeat
+  template:
+    metadata:
+      labels:
+        name: filebeat
+    spec:
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: /opt/log/stash
+          type: DirectoryOrCreate
+      containers:
+      - name: filebeat
+        image: docker.io/gaven/filebeat:latest
+        env:
+        - name: ELASTICSEARCH_ENDPOINT
+          value: "192.168.2.2:9200"
+        - name: INDEX_NAME
+          value: "log-k8s-%{+yyyy.MM.dd}"
+        - name: HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        volumeMounts:
+        - name: log-volume
+          mountPath: /input
+          readOnly: true

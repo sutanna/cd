@@ -1,0 +1,351 @@
+deploy_configs:
+  ads:
+    image_name: ads
+    replicas: 1
+
+  adseventsloader2:
+    image_name: adseventsloader2
+    replicas: 1
+
+  alipay:
+    image_name: alipay
+    replicas: 1
+
+  api:
+    image_name: api
+    replicas: 1
+
+  app:
+    image_name: app
+    replicas: 1
+    liveness_initial_delay: 120
+    liveness_period: 30
+    readiness_initial_delay: 90
+    readiness_period: 30
+
+  appbackend:
+    image_name: app
+    replicas: 1
+    liveness_initial_delay: 120
+    liveness_period: 30
+    readiness_initial_delay: 90
+    readiness_period: 30
+
+  appui:
+    image_name: appui
+    replicas: 1
+    no_health_check: true
+ 
+  cdp-adapter:
+    image_name: cdp-adapter
+    replicas: 1
+    
+  common-adapter:
+    image_name: common-adapter
+    replicas: 1
+
+  cms:
+    image_name: cms
+    replicas: 1
+
+  collectorentry:
+    image_name: collectorentry
+    replicas: 1
+    extra_ports:
+    - 18008
+
+  cpadmin:
+    image_name: cpadmin
+    replicas: 1
+
+  crm-adapter:
+    image_name: crm-adapter
+    replicas: 1  
+
+  customer:
+    image_name: customer
+    replicas: 1
+    extra_ports:
+    - 28009
+    - 6300
+
+  cdhadaptor:
+    image_name: cdhadaptor
+    replicas: 1
+
+  customerbackend:
+    image_name: customer
+    replicas: 1
+
+  datapermission:
+    image_name: datapermission
+    replicas: 1
+
+  duomai-adapter:
+    image_name: duomai-adapter
+    replicas: 1
+
+  dataextractor:
+    image_name: data-extractor
+    replicas: 1
+
+  su2-customer:
+    image_name: customer
+    replicas: 1
+
+  su2-customerbackend:
+    image_name: customer
+    replicas: 1
+
+  etlv2:
+    image_name: etlv2
+    replicas: 1
+
+  eventjob:
+    image_name: eventjob
+    replicas: 1
+
+  extensionplatform:
+    image_name: extensionplatform
+    replicas: 1
+
+  extlandingpage:
+    image_name: extlandingpage
+    replicas: 1
+
+  extlandingrt:
+    image_name: extlandingrt
+    replicas: 1
+    
+  extappendix:
+    image_name: extappendix
+    replicas: 1
+
+  extwebinar:
+    image_name: extwebinar
+    replicas: 1
+
+  extalipay:
+    image_name: extalipay
+    replicas: 1
+
+  extmms:
+    image_name: extmms
+    replicas: 1
+
+  extpingxx:
+    image_name: extpingxx
+    replicas: 1
+
+  file:
+    image_name: file
+    replicas: 1
+
+  flowmanager:
+    image_name: flowmanager
+    replicas: 1
+
+  goods:
+    image_name: goods
+    replicas: 1
+
+  hosting:
+    image_name: hosting
+    replicas: 2
+
+  ikeaadapter:
+    image_name: ikeaadapter
+    replicas: 1
+
+  job:
+    image_name: job
+    replicas: 1
+
+  kanglai:
+    image_name: kanglai
+    replicas: 1
+
+  loyaltyv2:
+    image_name: loyaltyv2
+    replicas: 1
+  
+  internalapi:
+    image_name: internalapi
+    replicas: 1
+  
+  jd-luopan:
+    image_name: jd-luopan
+    replicas: 1
+
+  maxwell:
+    image_name: maxwell
+    replicas: 1
+    disableRolling: true
+
+  plugin:
+    image_name: plugin
+    replicas: 2
+
+  jkui:
+    image_name: jkui
+    replicas: 1
+    no_health_check: true
+
+  queryhub:
+    image_name: queryhub
+    replicas: 1
+
+  reactflow2:
+    image_name: reactflow2
+    replicas: 1
+    requests_memory: 3Gi
+    limits_memory: 3Gi
+    requests_cpu: 1000m
+    limits_cpu: 2000m
+
+  scheduler:
+    image_name: scheduler
+    replicas: 1
+
+  sms:
+    image_name: sms
+    replicas: 2
+
+  sms-adapter:
+    image_name: sms-adapter
+    replicas: 1
+
+  urlshortener:
+    image_name: urlshortener
+    replicas: 1
+
+  webhook:
+    image_name: webhook
+    replicas: 1
+
+  wechat:
+    image_name: wechat
+    replicas: 1
+
+  wechatjob:
+    image_name: wechat
+    replicas: 1
+
+  wechat-adapter:
+    image_name: wechat-adapter
+    replicas: 1
+
+  wechatcorp:
+    image_name: wechatcorp
+    replicas: 1
+
+  wechatpay:
+    image_name: wechatpay
+    replicas: 1
+
+  wechatserver:
+    image_name: wechatserver
+    replicas: 1
+
+  wechatwork:
+    image_name: wechatwork
+    replicas: 1
+
+  wechatproxy:
+    image_name: wechatproxy
+    replicas: 1
+      
+  referrer:
+    image_name: referrer
+    replicas: 1
+
+  tms:
+    image_name: tms
+    replicas: 1
+
+  dts:
+    image_name: dts
+    replicas: 1
+
+  mqmigration:
+    image_name: mqmigration
+    replicas: 1
+    no_service: true
+
+  appdbmigration:
+    image_name: appdbmigration
+    replicas: 1
+    no_service: true
+
+  customerdbmigration:
+    image_name: customerdbmigration
+    replicas: 1
+    no_service: true
+
+  cdhdbmigration:
+    image_name: cdhdbmigration
+    replicas: 1
+    no_service: true
+
+  su2-customerdbmigration:
+    image_name: customerdbmigration
+    replicas: 1
+    no_service: true
+
+  loyaltydbmigration:
+    image_name: loyaltydbmigration
+    replicas: 1
+    no_service: true
+
+  angel:
+    image_name: angel
+    replicas: 1
+  configmigration:
+    image_name: configmigration
+    replicas: 1
+
+  hadoopods:
+    image_name: hadoopods
+    replicas: 1
+    liveness_initial_delay: 120
+    liveness_period: 30
+    readiness_initial_delay: 90
+    readiness_period: 30
+
+  hadoopdts:
+    image_name: hadoopdts
+    replicas: 1
+    liveness_initial_delay: 120
+    liveness_period: 30
+    readiness_initial_delay: 90
+    readiness_period: 30
+
+  hadoopetl:
+    image_name: hadoopetl
+    replicas: 1
+    liveness_initial_delay: 120
+    liveness_period: 30
+    readiness_initial_delay: 90
+    readiness_period: 30
+
+  kafka2es:
+    image_name: kafka2es
+    replicas: 1
+
+  impala:
+    image_name: impala
+    replicas: 1
+    extra_ports:
+    - 6300
+
+  datamining:
+    image_name: datamining
+    replicas: 1
+
+  rules:
+    image_name: rules
+    replicas: 1
+
+  uniqlo-coupon-adaptor:
+    image_name: uniqlo-coupon-adaptor
+    replicas: 1

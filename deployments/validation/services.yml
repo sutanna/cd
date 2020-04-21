@@ -1,0 +1,248 @@
+deploy_configs:
+  ads:
+    image_name: ads
+    hosts:
+      - v09
+
+  adseventsloader2:
+    image_name: adseventsloader2
+    hosts:
+      - v07
+
+  alipay:
+    image_name: alipay
+    hosts:
+      - v06
+
+  api:
+    image_name: api
+    hosts:
+      - v02
+      - v0601
+
+  app:
+    image_name: app
+    hosts:
+      - v01
+      - v04
+
+  appdbmigration:
+    image_name: appdbmigration
+    hosts:
+      - v02
+
+  appui:
+    image_name: appui
+    hosts:
+      - v01
+      - v04
+  
+  cdhdbmigration:
+    image_name: cdhdbmigration
+    hosts:
+      - v03
+
+  cms:
+    image_name: cms
+    hosts:
+      - v02
+
+  collectorentry:
+    image_name: collectorentry
+    published_ports: [18008]
+    hosts:
+      - v05
+
+  customer:
+    image_name: customer # "nexus.xiso.cn/<env>/${image_name}:${tag}"
+    hosts:
+      - v04
+      - v06
+      - v0601
+
+  customerbackend:
+    image_name: customer
+    hosts:
+      - v05
+      - v07
+  
+  customerdbmigration:
+    image_name: customerdbmigration
+    hosts:
+      - v08
+        
+  datamining:
+    image_name: datamining
+    hosts:
+      - v02
+
+  datapermission:
+    image_name: datapermission
+    hosts:
+      - v06
+
+  dts:
+    image_name: dts
+    hosts:
+      - v03
+
+  etlv2:
+    image_name: etlv2
+    hosts:
+      - v07
+      - v09
+
+  eventjob:
+    image_name: eventjob
+    hosts:
+      - v07
+
+  extensionplatform:
+    image_name: extensionplatform
+    hosts:
+      - v02
+
+  file:
+    image_name: file
+    hosts:
+      - v06
+
+  flowmanager:
+    image_name: flowmanager
+    hosts:
+      - v03
+
+  goods:
+    image_name: goods
+    hosts:
+      - v08
+
+  hadoopdts:
+    image_name: hadoopdts
+    hosts:
+      - v05
+
+  hadoopods:
+    image_name: hadoopods
+    hosts:
+      - v05
+
+  hosting:
+    image_name: hosting
+    hosts:
+      - v01
+      - v04
+
+  impala:
+    image_name: impala
+    hosts:
+      - v08
+
+  job:
+    image_name: job
+    hosts:
+      - v07
+
+  kafka2es:
+    image_name: kafka2es
+    hosts:
+      - v03
+
+  kanglai:
+    image_name: kanglai
+    hosts:
+      - v02
+      - v05
+
+  loyaltyv2:
+    image_name: loyaltyv2
+    hosts:
+      - v0601
+      - v08
+
+  loyaltydbmigration:
+    image_name: loyaltydbmigration
+    hosts:
+      - v03
+
+  maxwell:
+    image_name: maxwell
+    hosts:
+      - v01
+
+  mqmigration:
+    image_name: mqmigration
+    hosts:
+      - v03
+
+  plugin:
+    image_name: plugin
+    hosts:
+      - v08
+      - v04
+
+  reactflow2:
+    image_name: reactflow2
+    hosts:
+      - v09
+
+  referrer:
+    image_name: referrer
+    hosts:
+      - v07
+
+  scheduler:
+    image_name: scheduler
+    hosts:
+      - v03
+
+  sms:
+    image_name: sms
+    hosts:
+      - v02
+      - v05
+
+  tms:
+    image_name: tms
+    hosts:
+      - v02
+
+  urlshortener:
+    image_name: urlshortener
+    hosts:
+      - v09
+
+  webhook:
+    image_name: webhook
+    hosts:
+      - v08
+
+  wechat:
+    image_name: wechat
+    hosts:
+      - v08
+      - v04
+
+  wechatcorp:
+    image_name: wechatcorp
+    hosts:
+      - v09
+
+  wechatpay:
+    image_name: wechatpay
+    hosts:
+      - v07
+
+  wechatproxy:
+    image_name: wechatproxy
+    hosts:
+      - v03
+
+  wechatwork:
+    image_name: wechatwork
+    hosts:
+      - v06
+
+  
+
+

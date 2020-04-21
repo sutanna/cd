@@ -1,0 +1,34 @@
+- hosts: '{{ host }}'
+  gather_facts: no
+  vars_files:
+    - ../conf/default/services.yml
+    - ../conf/{{ folder }}_k8s/services.yml
+    - ../conf/{{ folder }}_k8s/endpoints.yml
+    - ../conf/{{ folder }}_k8s/resources.yml
+  tasks:
+    - name: merge service configs
+      set_fact:
+        service_configs: "{{service_configs | combine(service_additional_configs, recursive=True)}}"
+    - debug:
+        msg: "{{ service_configs }}"
+    - name: merge public endpoints to global config
+      set_fact:
+        global_config: "{{global | combine(endpoints.public, recursive=True)}}"
+    - name: merge internal service endpoints to global config
+      set_fact:
+        global_config: "{{global_config | combine({item.key + '_internal_url': 'http://' + item.key + ':' + item.value['server_port'] | string}, recursive=True)}}"
+      with_dict: "{{service_configs}}"
+      when: ('server_port' in item.value)
+    - name: merge internal endpoints to global config
+      set_fact:
+        global_config: "{{global_config | combine(endpoints.internal, recursive=True)}}"
+    - name: create global configmap
+      include_tasks: ./gen_global_configmap.yml
+    - name: create service configmap
+      include_tasks: ./gen_service_configmap.yml
+      vars:
+        service_name: "{{conf.key}}"
+        service_vars: "{{conf.value}}"
+      with_dict: "{{service_configs}}"
+      loop_control:
+        loop_var: conf

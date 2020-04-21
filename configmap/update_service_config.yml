@@ -1,0 +1,20 @@
+- hosts: '{{ host }}'
+  gather_facts: no
+  vars_files:
+    - ../conf/default/services.yml
+    - ../conf/{{ folder }}_k8s/services.yml
+    - ../conf/{{ folder }}_k8s/endpoints.yml
+    - ../conf/{{ folder }}_k8s/resources.yml
+  tasks:
+    - name: merge service configs
+      set_fact:
+        service_configs: "{{service_configs | combine(service_additional_configs, recursive=True)}}"
+    - debug:
+        msg: "{{ service_configs }}"
+    - name: create service configmap
+      include_tasks: ./gen_service_configmap.yml
+      vars:
+        service_vars: "{{service_configs[service_name]}}"
+      with_items: "{{services.split(',')}}"
+      loop_control:
+        loop_var: service_name

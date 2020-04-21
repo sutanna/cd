@@ -1,0 +1,29 @@
+# ---
+# - name: add global vars to env file
+#   shell: echo "{{item.key}}={{item.value}}" >> /opt/k8s/global.properties
+#   with_dict: "{{global_config}}"
+
+# - name: delete old global config map
+#   shell: /usr/local/bin/kubectl delete configmap global-config
+#   ignore_errors: yes
+
+# - name: create global config map
+#   shell: /usr/local/bin/kubectl create configmap global-config --from-env-file=/opt/k8s/global.properties
+
+---
+- name: generate global configmap yaml
+  template:
+    src: ./global_configmap.j2
+    dest: /tmp/{{ namespace }}-global.yaml
+- name: create or update global configmap
+  k8s:
+    force: True
+    state: present
+    src: /tmp/{{ namespace }}-global.yaml
+  register: execute_result
+- debug:
+    msg: "execute result: {{ execute_result }}"
+- name: remove global configmap yaml
+  file:
+    path: /tmp/{{ namespace }}-global.yaml
+    state: absent

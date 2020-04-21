@@ -1,0 +1,20 @@
+deploy_configs:
+  ads:
+    image_name: ads
+    hosts:
+      - t09-testvpc
+      
+  customer:
+    image_name: customer-customer # "nexus.xiso.cn/<env>/${image_name}:${tag}"
+    hosts:
+      - t01-testvpc
+      - t04-testvpc
+
+  customer_backend:
+    image_name: customer
+    hosts:
+      - t05-testvpc
+      - t07-testvpc
+  
+
+

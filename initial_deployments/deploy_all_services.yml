@@ -1,0 +1,23 @@
+---
+# deploy services which are defined in services.yml
+# huangchun@20181128
+
+- name: deploy services
+  hosts: application_servers
+  become: yes
+  vars_files:
+    - "../conf/{{ landscape }}/resources.yml"
+    - "../conf/default/services.yml"
+    - "../conf/{{ landscape }}/services.yml"
+    - "./{{ landscape }}/global.yml"
+    - "./{{ landscape }}/services.yml"
+  tasks:
+    - name: combine service configs
+      set_fact:
+        service_configs: "{{ service_configs | combine(service_additional_configs, recursive=True) }}" 
+
+    - include_tasks: single_service_task.yml
+      when: "ansible_hostname in deploy_configs[service_name]['hosts'] or ansible_default_ipv4.address in deploy_configs[service_name]['hosts'] or inventory_hostname in deploy_configs[service_name]['hosts']"
+      loop: "{{ deploy_configs.keys() | list }}"
+      loop_control:
+        loop_var: service_name

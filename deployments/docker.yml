@@ -1,0 +1,39 @@
+--- 
+- name: create env directory
+  file:
+    path: /opt/docker
+    state: directory
+- name: generate env content
+  shell: envconsul -consul-addr 127.0.0.1:8500 -pristine -prefix convertlab/global/ -prefix convertlab/{{service_name}}/ env > /opt/docker/{{service_name}}.properties
+- name: deploy docker
+  docker_container:
+    name: '{{service_name}}'
+    image: 'nexus-public.xsio.cn/{{folder}}/{{deploy_conf.image_name}}:{{image_tag}}'
+    state: started
+    recreate: yes
+    published_ports: '{{published_ports}}'
+    env_file: '/opt/docker/{{service_name}}.properties'
+    dns_servers: '{{dns_servers}}'
+    etc_hosts: '{{ docker_extra_hosts }}'
+    volumes:
+      - /opt/log:/opt/log
+      - /tmp:/tmp
+    pull: yes
+- name: Wait 10 seconds for {{service_name}} being avaliable
+  uri: 
+    url: 'http://127.0.0.1:{{server_port}}/ping' 
+    status_code: [200,404]
+  register: result
+  until: result.status == 200 or result.status == 404
+  retries: 60
+  delay: 5
+- name: Remove the env file
+  file: 
+    path: /opt/docker/{{service_name}}.properties
+    state: absent
+- name: register service
+  uri:
+    url: 'http://127.0.0.1:8500/v1/agent/service/register'
+    method: PUT
+    body_format: json
+    body: '{"name":"{{service_name}}","port":{{server_port}},"check":{"HTTP":"http://127.0.0.1:{{server_port}}/ping","Interval":"10s"}}'

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "global-config"
+  namespace: "{{ namespace }}"
+data:
+{% for key, value in global_config.items() %}
+  {{ key }}: "{{ value }}"
+{% endfor %}

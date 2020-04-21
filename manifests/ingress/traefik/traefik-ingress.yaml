@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-web-ui
+  namespace: ingress-traefik 
+  annotations:
+    traefik.ingress.kubernetes.io/frontend-entry-points: http, https
+spec:
+  rules:
+  - host: traefik.dmhub.biz 
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: traefik-web-ui
+          servicePort: admin 
+#  tls:
+#   - secretName: traefik-ui-tls-cert

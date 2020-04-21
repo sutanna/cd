@@ -1,0 +1,119 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: app-ingress
+  namespace: test
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/app-root: "/index.html"
+    nginx.ingress.kubernetes.io/proxy-redirect-from: "http://"
+    nginx.ingress.kubernetes.io/proxy-redirect-to: "https://"
+    nginx.ingress.kubernetes.io/proxy-body-size: 10m
+    nginx.ingress.kubernetes.io/server-snippet: |
+      location ~ .*\.(csv|template|xlsx|zip|ico|map|html|htm|pdf|gif|jpg|jpeg|bmp|png|ico|txt|js|css|woff|woff2|ttf)$ {
+
+        rewrite_by_lua_block {
+          balancer.rewrite()
+        }
+
+        log_by_lua_block {
+          balancer.log()
+          monitor.call()
+        }
+
+        if ($scheme = https) {
+          more_set_headers "Strict-Transport-Security: max-age=15724800; includeSubDomains";
+        }
+
+        port_in_redirect off;
+
+        set $proxy_upstream_name "test-appui-18012";
+
+        # enforce ssl on server side
+        if ($redirect_to_https) {
+          return 308 https://$best_http_host$request_uri;
+        }
+
+        client_max_body_size                    1m;
+
+        proxy_set_header Host                   $best_http_host;
+
+        # Pass the extracted client certificate to the backend
+
+        # Allow websocket connections
+        proxy_set_header                        Upgrade           $http_upgrade;
+
+        proxy_set_header                        Connection        $connection_upgrade;
+
+        proxy_set_header X-Request-ID           $req_id;
+        proxy_set_header X-Real-IP              $the_real_ip;
+
+        proxy_set_header X-Forwarded-For        $the_real_ip;
+
+        proxy_set_header X-Forwarded-Host       $best_http_host;
+        proxy_set_header X-Forwarded-Port       $pass_port;
+        proxy_set_header X-Forwarded-Proto      $pass_access_scheme;
+
+        proxy_set_header X-Original-URI         $request_uri;
+
+        proxy_set_header X-Scheme               $pass_access_scheme;
+
+        # Pass the original X-Forwarded-For
+        proxy_set_header X-Original-Forwarded-For $http_x_forwarded_for;
+
+        # mitigate HTTPoxy Vulnerability
+        proxy_set_header Proxy                  "";
+
+        # Custom headers to proxied server
+
+        proxy_connect_timeout                   5s;
+        proxy_send_timeout                      60s;
+        proxy_read_timeout                      60s;
+
+        proxy_buffering                         off;
+        proxy_buffer_size                       4k;
+        proxy_buffers                           4 4k;
+        proxy_request_buffering                 on;
+
+        proxy_http_version                      1.1;
+
+        proxy_cookie_domain                     off;
+        proxy_cookie_path                       off;
+
+        # In case of errors try the next upstream server before returning an error
+        proxy_next_upstream                     error timeout;
+        proxy_next_upstream_tries               3;
+
+        proxy_pass http://upstream_balancer;
+
+        # proxy_redirect                          http://app.dmhub.cn/login.html https://app.dmhub.cn/login.html;
+      }
+spec:
+  tls:
+  - hosts:
+    - app.dmhub.cn
+    secretName: app-ingress-secret
+  rules:
+  - host: app.dmhub.cn 
+    http:
+      paths:
+      - path: /application
+        backend:
+          serviceName: appui
+          servicePort: 18012
+      - path: /assets/
+        backend:
+          serviceName: app
+          servicePort: 18011
+      - path: /oauth2
+        backend:
+          serviceName: app
+          servicePort: 18011
+      - path: /.+
+        backend:
+          serviceName: app
+          servicePort: 18011 
+

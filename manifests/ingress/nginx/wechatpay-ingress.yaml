@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: wechatpay-ingress
+  namespace: test
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+  - host: wechatpay.dmhub.cn 
+    http:
+      paths:
+      - path: /callback
+        backend:
+          serviceName: wechatpay 
+          servicePort: 8024
+      - path: /callbackv1
+        backend:
+          serviceName: wechatpay
+          servicePort: 8024
+

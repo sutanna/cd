@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: osslogshipper
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      name: osslogshipper
+  template:
+    metadata:
+      labels:
+        name: osslogshipper
+    spec:
+      imagePullSecrets:
+      - name: nexus-secret
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: /opt/log/stash
+          type: DirectoryOrCreate
+      containers:
+      - name: osslogshipper
+        image: nexus-public.xsio.cn/prod/osslogshipper-osslogshipper:latest
+        env:
+        - name: OssEndpoint
+          value: "oss-cn-hangzhou.aliyuncs.com"
+        - name: OssBucket
+          value: "clab-log-storage"
+        - name: OssAccessKey
+          value: "K23bqoeXD2Mm33bL"
+        - name: OssAccessSecret
+          value: "iJrNwEGMWsLQD3nVU4vN2ry8bmhsXn"
+        - name: FilePattern
+          value: "/opt/log/stash/*/*.zip"
+        - name: Env
+          value: "test"
+        - name: Host
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        volumeMounts:
+        - name: log-volume
+          mountPath: /opt/log/stash
