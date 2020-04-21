@@ -4,7 +4,7 @@ import org.codehaus.groovy.control.messages.ExceptionMessage
 pipeline {
     agent {
         docker {
-            image 'nexus-release.xsio.cn/jenkins-taskrunner:latest'
+            image 'nexus.xsio.cn/jenkins-taskrunner:latest'
             alwaysPull true
             args "-v /root/.ssh:/root/.ssh"
         }

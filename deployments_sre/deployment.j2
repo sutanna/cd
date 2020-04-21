@@ -79,7 +79,7 @@ spec:
         - "prodvpc-hadoop11"
       containers:
       - name: "{{ service_name }}"
-        image: "nexus-public.xsio.cn/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
+        image: "nexus.xsio.cn/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
         imagePullPolicy: Always
         ports:
         - name: web
