@@ -1,9 +1,0 @@
-dns_servers: 
-  - 10.0.2.123
-  - 10.0.2.124
-  - 10.0.2.125
-landscape: test
-unified_image_tag: latest
-docker_registry_addr: nexus-public.xsio.cn
-# docker_registry_username: user
-# docker_registry_password: password
