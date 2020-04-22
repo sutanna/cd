@@ -26,57 +26,24 @@ spec:
           path: /opt/tmp
           type: DirectoryOrCreate
       hostAliases:
-      - ip: "10.10.0.2"
+      - ip: "172.18.86.182"
         hostnames:
-        - "hadoop01"
-      - ip: "10.10.0.3"
+        - "bigdata001"
+      - ip: "172.18.86.181"
         hostnames:
-        - "hadoop02"
-      - ip: "10.10.0.4"
+        - "bigdata002"
+      - ip: "172.18.86.178"
         hostnames:
-        - "hadoop03"
-      - ip: "10.10.0.6"
+        - "bigdata003"
+      - ip: "172.18.86.179"
         hostnames:
-        - "hadoop04"
-      - ip: "10.10.0.7"
+        - "bigdata004"
+      - ip: "172.18.86.177"
         hostnames:
-        - "hadoop05"
-      - ip: "10.10.0.8"
+        - "bigdata005"
+      - ip: "172.18.86.180"
         hostnames:
-        - "hadoop06"
-      - ip: "192.168.11.167"
-        hostnames:
-        - "prodvpc-hadoop01"
-      - ip: "192.168.11.168"
-        hostnames:
-        - "prodvpc-hadoop02"
-      - ip: "192.168.11.169"
-        hostnames:
-        - "prodvpc-hadoop03"
-      - ip: "192.168.11.170"
-        hostnames:
-        - "prodvpc-hadoop04"
-      - ip: "192.168.11.172"
-        hostnames:
-        - "prodvpc-hadoop05"
-      - ip: "192.168.11.173"
-        hostnames:
-        - "prodvpc-hadoop06"
-      - ip: "192.168.11.174"
-        hostnames:
-        - "prodvpc-hadoop07"
-      - ip: "192.168.11.175"
-        hostnames:
-        - "prodvpc-hadoop08"
-      - ip: "192.168.11.191"
-        hostnames:
-        - "prodvpc-hadoop09"
-      - ip: "192.168.11.186"
-        hostnames:
-        - "prodvpc-hadoop10"
-      - ip: "192.168.11.190"
-        hostnames:
-        - "prodvpc-hadoop11"
+        - "bigdata006"
       containers:
       - name: "{{ service_name }}"
         image: "nexus.xsio.cn/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
