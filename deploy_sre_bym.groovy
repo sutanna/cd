@@ -106,7 +106,7 @@ pipeline {
 //def deployService(service, host, extraVars) {
 def deployService(service, extraVars) {
 
-    ansiblePlaybook(playbook: "deployments_sre/playbook.yml",
+    ansiblePlaybook(playbook: "deployments_sre/playbook_bym.yml",
          //   inventory: host+","  ,
             extraVars: extraVars)
 }
