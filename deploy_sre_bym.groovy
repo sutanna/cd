@@ -6,7 +6,7 @@ pipeline {
         docker {
             image 'nexus.xsio.cn/jenkins-taskrunner:test'
             alwaysPull true
-            args "-v /root/.ssh:/root/.ssh" "-v /root/.kube:/root/.kube" "-v /tmp/k8s:/tmp"
+            args "-v /root/.ssh:/root/.ssh","-v /root/.kube:/root/.kube","-v /tmp/k8s:/tmp"
         }
     }
     // environment {
