@@ -4,7 +4,7 @@ import org.codehaus.groovy.control.messages.ExceptionMessage
 pipeline {
     agent {
         docker {
-            image 'registry-vpc.cn-hangzhou.aliyuncs.com/convertlab/jenkins-taskrunner:test'
+            image 'registry-vpc.cn-hangzhou.aliyuncs.com/beingmate_scrm/jenkins-taskrunner:test'
             alwaysPull true
             args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s:/tmp"
         }

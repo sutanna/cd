@@ -79,7 +79,7 @@ spec:
         - "prodvpc-hadoop08"
       containers:
       - name: "{{ service_name }}"
-        image: "registry-vpc.cn-hangzhou.aliyuncs.com/convertlab/{{ image_name }}:{{ image_tag }}"
+        image: "registry-vpc.cn-hangzhou.aliyuncs.com/beingmate_scrm/{{ image_name }}:{{ image_tag }}"
         imagePullPolicy: Always
         ports:
         - name: web
