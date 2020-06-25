@@ -15,21 +15,10 @@ pipeline {
         docker {
             image 'registry-vpc.cn-hangzhou.aliyuncs.com/beingmate_scrm/jenkins-taskrunner:test'
             alwaysPull true
-            args "-v /root/.ssh:/root/.ssh -v /root/.kube${deploy_env}:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
+            args "-v /root/.ssh:/root/.ssh -v /root/.bym${deploy_env}:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
         }
     }
-    // environment {
-    //     ANSIBLE_JINJA2_NATIVE = 'true'
-    // }
-    // parameters {
-    //     string(name: 'service_name', defaultValue: '', description: '服务名称比如是backend还是wechatjob')
-    //     string(name: 'component_name', defaultValue: '', description: '服务名称和镜像有关')
-    //     string(name: 'component_version', defaultValue: '', description: '服务版本')
-    //     string(name: 'deploy_env', defaultValue: '', description: '部署的namespace')
-    //     string(name: 'k8s_node', defaultValue: '', description: 'ansible要连的节点')
-    //     string(name: 'args', defaultValue: '{}', description: '服务部署时需要的参数，如cpu核数，内存大小等')
-    //     string(name: 'notify_url',defaultValue: '', description: '通知job状态到sre的地址')
-    // }
+    
     stages {
         stage('Notify Start') {
             steps{
