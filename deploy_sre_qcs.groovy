@@ -15,7 +15,7 @@ pipeline {
         docker {
             image 'registry-vpc.cn-hangzhou.aliyuncs.com/beingmate_scrm/jenkins-taskrunner:test'
             alwaysPull true
-            args "-v /home/pocsystem/.ssh:/root/.ssh -v /home/pocsystem/.kube:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
+            args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
         }
     }
     
