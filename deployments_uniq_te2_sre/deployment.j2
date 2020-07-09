@@ -26,24 +26,18 @@ spec:
           path: /opt/tmp
           type: DirectoryOrCreate
       hostAliases:
-      - ip: "172.18.86.182"
+      - ip: "172.16.31.4"
         hostnames:
-        - "bigdata001"
-      - ip: "172.18.86.181"
+        - "ma-master01-te2"
+      - ip: "172.16.31.5"
         hostnames:
-        - "bigdata002"
-      - ip: "172.18.86.178"
+        - "ma-slave01-te2"
+      - ip: "172.16.31.6"
         hostnames:
-        - "bigdata003"
-      - ip: "172.18.86.179"
+        - "ma-slave02-te2"
+      - ip: "172.16.31.7"
         hostnames:
-        - "bigdata004"
-      - ip: "172.18.86.177"
-        hostnames:
-        - "bigdata005"
-      - ip: "172.18.86.180"
-        hostnames:
-        - "bigdata006"
+        - "ma-slave03-te2"
       containers:
       - name: "{{ service_name }}"
         image: "frmaaksacr.azurecr.cn/{{ image_name }}:{{ image_tag }}"
@@ -71,7 +65,7 @@ spec:
           name: tmp-volume
         resources:
           requests:
-            memory: "{{ requests_memory | default('2048Mi') }}"
+            memory: "{{ requests_memory | default('900Mi') }}"
             cpu: "{{ requests_cpu | default('125m') }}"
           limits:
             memory: "{{ limits_memory | default('4096Mi') }}"
