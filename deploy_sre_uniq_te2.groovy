@@ -16,7 +16,7 @@ pipeline {
             image 'frmaaksacr.azurecr.cn/jenkins-taskrunner:test'
             alwaysPull true
             //args "-v /root/.ssh:/root/.ssh -v /root/.bym${deploy_env}:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
-            args "-u 100:100 -v /var/lib/jenkins/.ssh:/home/jenkins/.ssh -v /var/lib/jenkins/.kube:/home/jenkins/.kube -v /tmp/k8s/${deploy_env}:/tmp"
+            args "-u 0:0 -v /var/lib/jenkins/.ssh:/root/.ssh -v /var/lib/jenkins/.kube:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
         }
     }
     
