@@ -25,6 +25,10 @@ spec:
         hostPath:
           path: /opt/tmp
           type: DirectoryOrCreate
+      - name: kerberos
+        secret:
+          defaultMode: 420
+          secretName: kerberos-auth63          
       hostAliases:
       - ip: "172.16.31.4"
         hostnames:
@@ -63,6 +67,14 @@ spec:
           name: tmp-volume
         - mountPath: /tmp
           name: tmp-volume
+        - name: "kerberos"
+          mountPath: "/etc/krb5.conf"
+          subPath: "krb5.conf"
+        - name: "kerberos"
+          mountPath: "/etc/ma.keytab"
+          subPath: "ma.keytab"
+          
+          
         resources:
           requests:
             memory: "{{ requests_memory | default('900Mi') }}"
