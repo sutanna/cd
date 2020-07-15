@@ -47,7 +47,6 @@ spec:
         hostPath:
           path: /opt/log/stash
           type: DirectoryOrCreate
-      serviceAccountName: reactflow
       containers:
       - name: "{{ service_name }}"
         image: "nexus.xsio.cn/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
