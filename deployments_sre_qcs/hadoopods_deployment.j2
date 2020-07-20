@@ -15,30 +15,6 @@ spec:
         dce.daocloud.io/app: "{{ service_name }}"
     spec:
       hostAliases:
-      - ip: "10.95.35.203"
-        hostnames:
-        - "hdp-watsons-kafka-203.aswcntechlab.com"
-      - ip: "10.95.35.43"
-        hostnames:
-        - "hdp-watsons-kafka-43.aswcntechlab.com"
-      - ip: "10.95.35.21"
-        hostnames:
-        - "hdp-watsons-kafka-21.aswcntechlab.com"
-      - ip: "10.95.35.46"
-        hostnames:
-        - "hdp-watsons-kafka-46.aswcntechlab.com"
-      - ip: "10.95.35.160"
-        hostnames:
-        - "hdp-watsons-160"
-        - "hdp-watsons-160.aswcntechlab.com"
-      - ip: "10.95.35.161"
-        hostnames:
-        - "hdp-watsons-161"
-        - "hdp-watsons-161.aswcntechlab.com"
-      - ip: "10.95.35.62"
-        hostnames:
-        - "hdp-watsons-62"
-        - "hdp-watsons-62.aswcntechlab.com"
       - ip: "10.95.35.70"
         hostnames:
         - "aswtechlabconvertlabhadoop01"
@@ -51,6 +27,9 @@ spec:
       - ip: "10.95.35.206"
         hostnames:
         - "aswtechlabconvertlabjenkins"
+      - ip: "10.95.35.163"
+        hostnames:
+        - "aswtechlabcdpkfka01"
       imagePullSecrets:
       - name: xsio-registry-secret
       volumes:
