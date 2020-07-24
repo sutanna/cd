@@ -30,18 +30,20 @@ spec:
           defaultMode: 420
           secretName: kerberos-auth63          
       hostAliases:
-      - ip: "172.16.31.4"
-        hostnames:
-        - "ma-master01-te2"
-      - ip: "172.16.31.5"
-        hostnames:
-        - "ma-slave01-te2"
-      - ip: "172.16.31.6"
-        hostnames:
-        - "ma-slave02-te2"
-      - ip: "172.16.31.7"
-        hostnames:
-        - "ma-slave03-te2"
+        
+      - hostnames:
+        - ma-master01-te2
+        ip: 172.16.31.4
+      - hostnames:
+        - ma-slave01-te2
+        ip: 172.16.31.5
+      - hostnames:
+        - ma-slave02-te2
+        ip: 172.16.31.6
+      - hostnames:
+        - ma-slave03-te2
+        ip: 172.16.31.7
+
       containers:
       - name: "{{ service_name }}"
         image: "frmaaksacr.azurecr.cn/{{ image_name }}:{{ image_tag }}"
