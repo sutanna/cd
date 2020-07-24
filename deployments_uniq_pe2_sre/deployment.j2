@@ -15,7 +15,7 @@ spec:
         app: "{{ service_name }}"
     spec:
       imagePullSecrets:
-      - name: userpass-secret
+      - name: xsio-registry-secret
       volumes:
       - name: log-volume
         hostPath:
