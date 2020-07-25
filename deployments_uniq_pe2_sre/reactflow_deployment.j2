@@ -16,7 +16,7 @@ spec:
         app: "{{ service_name }}"
     spec:
       imagePullSecrets:
-      - name: userpass-secret
+      - name: xsio-registry-secret
       hostAliases:
         - ip: "172.16.37.15"
           hostnames:
