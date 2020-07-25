@@ -92,3 +92,7 @@ spec:
           limits:
             memory: "{{ limits_memory | default('8Gi') }}"
             cpu: "{{ limits_cpu | default('4000m') }}"
+      tolerations:
+      - effect: NoSchedule
+        key: reactflow-only
+        operator: Exists
