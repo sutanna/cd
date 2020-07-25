@@ -17,6 +17,38 @@ spec:
     spec:
       imagePullSecrets:
       - name: userpass-secret
+      hostAliases:
+        - ip: "172.16.37.15"
+          hostnames:
+            - "ma-master01-pe2"
+        - ip: "172.16.37.16"
+          hostnames:
+            - "ma-master02-pe2"
+        - ip: "172.16.37.17"
+          hostnames:
+            - "ma-slave01-pe2"
+        - ip: "172.16.37.18"
+          hostnames:
+            - "ma-slave02-pe2"
+        - ip: "172.16.37.19"
+          hostnames:
+            - "ma-slave03-pe2"
+        - ip: "172.16.37.20"
+          hostnames:
+            - "ma-slave04-pe2"
+        - ip: "172.16.37.21"
+          hostnames:
+            - "ma-slave05-pe2"
+        - ip: "172.16.37.22"
+          hostnames:
+            - "ma-slave06-pe2"
+        - ip: "172.16.37.23"
+          hostnames:
+            - "ma-slave07-pe2"
+        - ip: "172.16.37.24"
+          hostnames:
+            - "ma-slave08-pe2"
+      
       volumes:
       - name: log-volume
         hostPath:
