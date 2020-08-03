@@ -38,25 +38,6 @@ spec:
         hostPath:
           path: /opt/tmp
           type: DirectoryOrCreate
-      hostAliases:
-      - ip: "172.18.86.182"
-        hostnames:
-        - "bigdata001"
-      - ip: "172.18.86.181"
-        hostnames:
-        - "bigdata002"
-      - ip: "172.18.86.178"
-        hostnames:
-        - "bigdata003"
-      - ip: "172.18.86.179"
-        hostnames:
-        - "bigdata004"
-      - ip: "172.18.86.177"
-        hostnames:
-        - "bigdata005"
-      - ip: "172.18.86.180"
-        hostnames:
-        - "bigdata006"
       containers:
       - name: "{{ service_name }}"
         image: "registry-vpc.cn-hangzhou.aliyuncs.com/beingmate_scrm/{{ image_name }}:{{ image_tag }}"
