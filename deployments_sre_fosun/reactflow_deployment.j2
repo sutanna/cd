@@ -18,6 +18,10 @@ spec:
       imagePullSecrets:
       - name: xsio-registry-secret
       volumes:
+      - name: kerberos
+        secret:
+          defaultMode: 420
+          secretName: kerberos-auth
       - name: log-volume
         hostPath:
           path: /opt/log/stash

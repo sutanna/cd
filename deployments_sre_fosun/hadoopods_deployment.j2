@@ -24,6 +24,10 @@ spec:
       - name: ods-volume
         persistentVolumeClaim:
           claimName: ods-volume
+      - name: kerberos
+        secret:
+          defaultMode: 420
+          secretName: kerberos-auth
       containers:
       - name: "{{ service_name }}"
         image: "nexus.xsio.cn/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
