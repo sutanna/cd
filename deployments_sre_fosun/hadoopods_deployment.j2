@@ -26,7 +26,7 @@ spec:
           claimName: ods-volume
       - name: kerberos
         secret:
-          defaultMode: 777
+          defaultMode: 0777
           secretName: kerberos-auth
       containers:
       - name: "{{ service_name }}"
