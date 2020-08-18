@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: "{{ service_name }}" 
+  name: "{{ service_name }}"
+  namespace: "{{ namespace }}"
+spec:
+  replicas: {{ replicas }}
+  selector:
+    matchLabels:
+      app: "{{ service_name }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ service_name }}"
+    spec:
+      imagePullSecrets:
+      - name: xsio-registry-secret
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: /opt/log/stash
+          type: DirectoryOrCreate
+      hostAliases:
+      - ip: "10.2.0.10"
+        hostnames:
+        - "hadoop01"
+      - ip: "10.2.0.11"
+        hostnames:
+        - "hadoop02"
+      - ip: "10.2.0.12"
+        hostnames:
+        - "hadoop03"
+      - ip: "10.2.0.5"
+        hostnames:
+        - "jenkins.sre.azure.xsio.cn"
+      serviceAccountName: reactflow
+      containers:
+      - name: "{{ service_name }}"
+        image: "nexus.xsio.cn/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: web
+          containerPort: {{ service_port }}
+        - name: remoting
+          containerPort: 2551
+          protocol: TCP
+        - name: management
+          containerPort: 8558
+          protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: global-config
+        - configMapRef:
+            name: "{{ service_name }}-config"
+        env:
+        - name: service_id
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: ExternalIp
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        volumeMounts:
+        - mountPath: /opt/log/stash
+          name: log-volume
+        resources:
+          requests:
+            memory: "{{ requests_memory | default('2048Mi') }}"
+            cpu: "{{ drequests_cpu | default('125m') }}"
+          limits:
+            memory: "{{ limits_memory | default('4096Mi') }}"
+            cpu: "{{ limits_cpu | default('1000m') }}"
