@@ -4,14 +4,11 @@ import org.codehaus.groovy.control.messages.ExceptionMessage
 pipeline {
     agent {
         docker {
-            image 'nexus.xsio.cn/jenkins-taskrunner:latest'
+            image 'nexus.xsio.cn/jenkins-taskrunner:test'
             alwaysPull true
-            args "-v /root/.ssh:/root/.ssh"
+	    args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
         }
     }
-    // environment {
-    //     ANSIBLE_JINJA2_NATIVE = 'true'
-    // }
     parameters {
         string(name: 'service_name', defaultValue: '', description: '服务名称比如是backend还是wechatjob')
         string(name: 'component_name', defaultValue: '', description: '服务名称和镜像有关')
