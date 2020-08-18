@@ -20,7 +20,7 @@ spec:
       volumes:
       - name: kerberos
         secret:
-          defaultMode: 444
+          defaultMode: 777
           secretName: kerberos-auth
       - name: log-volume
         hostPath:
