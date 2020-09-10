@@ -1,19 +1,17 @@
 #! groovy
 
 pipeline {
-    agent {
-        parameters {
+    parameters {
+        text(name: 'SERVICE_NAMES', defaultValue: '', description: '部署的服务名, 用逗号隔开')
+        string(name: 'IMAGE_TAG', defaultValue: '', description: '部署的服务的镜像标签')
         string(name: 'ENV', defaultValue: '', description: '部署的环境')
-        }
+    }
+    agent {
         docker {
             image 'nexus-release.xsio.cn/jenkins-taskrunner:test'
             alwaysPull true
             args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s/${ENV}:/tmp"
         }
-    }
-    parameters {
-        text(name: 'SERVICE_NAMES', defaultValue: '', description: '部署的服务名, 用逗号隔开')
-        string(name: 'IMAGE_TAG', defaultValue: '', description: '部署的服务的镜像标签')
     }
     stages {
         stage('deploy services') {
