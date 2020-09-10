@@ -2,10 +2,13 @@
 
 pipeline {
     agent {
+        parameters {
+        string(name: 'ENV', defaultValue: '', description: '部署的环境')
+        }
         docker {
             image 'nexus-release.xsio.cn/jenkins-taskrunner:test'
             alwaysPull true
-            args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
+            args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s/${ENV}:/tmp"
         }
     }
     parameters {
