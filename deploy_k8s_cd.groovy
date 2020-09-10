@@ -2,9 +2,10 @@
 
 pipeline {
     parameters {
-        text(name: 'SERVICE_NAMES', defaultValue: '', description: '部署的服务名, 用逗号隔开')
-        string(name: 'IMAGE_TAG', defaultValue: '', description: '部署的服务的镜像标签')
-        string(name: 'ENV', defaultValue: '', description: '部署的环境')
+        text(name: 'SERVICE_NAMES', defaultValue: '', description: 'server name')
+        string(name: 'IMAGE_TAG', defaultValue: '', description: 'image tag')
+        string(name: 'ENV', defaultValue: '', description: 'deploy env ')
+        string(name: 'IMAGE_PATH', defaultValue: '', description: 'IMAGE_PATH')
     }
     agent {
         docker {
