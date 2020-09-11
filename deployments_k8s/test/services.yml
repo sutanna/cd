@@ -101,6 +101,10 @@ deploy_configs:
     image_name: etlv2
     replicas: 1
 
+  extduiba:
+    image_name: extduiba
+    replicas: 1
+
   eventjob:
     image_name: eventjob
     replicas: 1
