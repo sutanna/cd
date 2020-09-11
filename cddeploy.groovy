@@ -15,7 +15,8 @@ node  {
 
     stage ('deploy'){
         sshStr = """
-        cp ~/ystest/cdtemplate2.yaml  deploy.yaml  
+        #cp ~/ystest/cdtemplate2.yaml  deploy.yaml
+	mv cdtemplate.yaml deploy.yaml	
         sed -i '/NAME/s#NAME#${APPNAME}#' deploy.yaml
         sed -i '/SPACE/s#SPACE#${ENV}#' deploy.yaml
         sed -i '/PORT/s#PORT#${PORT}#' deploy.yaml
