@@ -18,7 +18,7 @@ spec:
       volumes:
       - name: log-volume
         hostPath:
-          path: /opt/log/stash
+          path: /opt/log/stash/{{ namespace }}
           type: DirectoryOrCreate
       - name: tmp-volume
         hostPath:
