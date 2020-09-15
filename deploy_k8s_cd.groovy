@@ -24,7 +24,7 @@ pipeline {
 
                     def services = params.SERVICE_NAMES.trim().split("\\s*,\\s*") as Set
                     def normalServices = []
-                    
+
                     for (service in services) {
                         normalServices.add(service)
                     }
@@ -60,7 +60,7 @@ pipeline {
 def deployService(service, envFolder, imageTag) {
     echo "deploy $service"
 
-    //def confs = readYaml(file: "deployments_k8s_cd/${envFolder}/services.yml").deploy_configs
+    def confs = readYaml(file: "deployments_k8s_cd/${envFolder}/services.yml").deploy_configs
 
     ansiblePlaybook(playbook: "deployments_k8s_cd/playbook.yml",
            // inventory: "deployments_k8s_cd/hosts.ini",
