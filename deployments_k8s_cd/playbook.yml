@@ -4,10 +4,6 @@
   gather_facts: no
   serial: 1
   vars_files:
-    - ../conf/default/services.yml
-    - ../conf/{{ folder }}_k8s/resources.yml
-    - ../conf/{{ folder }}_k8s/services.yml
-    - ./{{ folder }}/global.yml
     - ./{{ folder }}/services.yml
   tasks: 
     - name: prepare configs
@@ -16,18 +12,6 @@
         deploy_conf: "{{deploy_configs[service_name]}}"
     - name: prepare server_port
       set_fact:
-        server_port: "{{service_configs[service_name].server_port}}"
+        server_port: "{{deploy_configs[service_name].server_port}}"
     - name: deploy normal service
       include_tasks: ./deploy_stateless.yml
-      when:
-        - not (service_name is search("reactflow2"))
-        - service_name != 'hadoopods'
-    - name: deploy reactflow service
-      include_tasks: ./deploy_reactflow.yml
-      when: service_name is search("reactflow2")
-    - name: deploy hadoopods service
-      include_tasks: ./deploy_hadoopods.yml
-      when: service_name == 'hadoopods' 
-
- 
-

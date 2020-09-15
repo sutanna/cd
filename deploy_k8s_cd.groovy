@@ -1,27 +1,25 @@
 #! groovy
 
 pipeline {
-    parameters {
-        text(name: 'SERVICE_NAMES', defaultValue: '', description: 'server name')
-        string(name: 'IMAGE_TAG', defaultValue: '', description: 'image tag')
-        string(name: 'ENV', defaultValue: '', description: 'deploy env ')
-        string(name: 'IMAGE_PATH', defaultValue: '', description: 'IMAGE_PATH')
-    }
     agent {
         docker {
             image 'nexus-release.xsio.cn/jenkins-taskrunner:test'
             alwaysPull true
-            args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s/${ENV}:/tmp"
+            args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s:/tmp"
         }
+    }
+    parameters {
+        text(name: 'SERVICE_NAMES', defaultValue: '', description: 'server name')
+        string(name: 'IMAGE_TAG', defaultValue: '', description: 'image tag')
+        string(name: 'ENV', defaultValue: 'test', description: 'deploy env ')
     }
     stages {
         stage('deploy services') {
             steps {
                 script {
                     def imageTag = params.IMAGE_TAG
-                    def map = [master: 'test', validation: 'validation', release: 'prod']
                     def name = params.ENV_NAME ?: env.BRANCH_NAME
-                    def envFolder = map[name] ?: name
+                    def envFolder = params.ENV
 
                     def services = params.SERVICE_NAMES.trim().split("\\s*,\\s*") as Set
                     def normalServices = []
