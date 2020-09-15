@@ -8,6 +8,7 @@ pipeline {
             args "-u jenkins:jenkins -v /opt/hudson/.ssh:/home/jenkins/.ssh -v /opt/hudson/.kube:/home/jenkins/.kube -v /tmp/k8s:/tmp"
         }
     }
+    
     parameters {
         text(name: 'SERVICE_NAMES', defaultValue: '', description: 'server name')
         string(name: 'IMAGE_TAG', defaultValue: '', description: 'image tag')
