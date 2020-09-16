@@ -19,7 +19,6 @@ pipeline {
             steps {
                 script {
                     def imageTag = params.IMAGE_TAG
-                    def name = params.ENV_NAME ?: env.BRANCH_NAME
                     def envFolder = params.ENV
 
                     def services = params.SERVICE_NAMES.trim().split("\\s*,\\s*") as Set
