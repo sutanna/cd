@@ -8,7 +8,6 @@
   tasks: 
     - name: prepare configs
       set_fact:
-        service_configs: "{{service_configs | combine(service_additional_configs, recursive=True)}}" 
         deploy_conf: "{{deploy_configs[service_name]}}"
     - name: prepare server_port
       set_fact:
