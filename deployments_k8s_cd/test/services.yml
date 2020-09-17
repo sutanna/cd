@@ -3,3 +3,7 @@ deploy_configs:
     image_name: kukaplatform
     replicas: 1
     server_port: 18066
+  ruijie:
+    image_name: ruijie
+    replicas: 1
+    server_port: 8208
