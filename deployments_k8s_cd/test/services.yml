@@ -15,7 +15,7 @@ deploy_configs:
     image_name: rjmarketing
     replicas: 1
     server_port: 8207
-    economicsui:
+  economicsui:
     image_name: economicsui
     replicas: 1
     server_port: 8028
