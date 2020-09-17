@@ -7,3 +7,7 @@ deploy_configs:
     image_name: ruijie
     replicas: 1
     server_port: 8208
+  hublot:
+    image_name: hublot
+    replicas: 1
+    server_port: 18069
