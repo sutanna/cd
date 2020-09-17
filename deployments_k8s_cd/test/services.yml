@@ -11,7 +11,7 @@ deploy_configs:
     image_name: hublot
     replicas: 1
     server_port: 18069
-  ruijierjmarketing:
+  jmarketing:
     image_name: ruijier-jmarketing
     replicas: 1
     server_port: 8207
