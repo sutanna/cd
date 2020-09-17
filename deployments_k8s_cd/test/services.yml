@@ -12,6 +12,6 @@ deploy_configs:
     replicas: 1
     server_port: 18069
   rjmarketing:
-    image_name: ruijie-rjmarketing
+    image_name: rjmarketing
     replicas: 1
     server_port: 8207
