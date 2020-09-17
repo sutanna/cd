@@ -26,7 +26,7 @@ spec:
           type: DirectoryOrCreate
       containers:
       - name: "{{ service_name }}"
-        image: "192.168.217.70:5101/{{ namespace }}/{{ deploy_conf.image_name }}:{{ image_tag }}"
+        image: "nexus-public.cd.xsio.cn/{{ namespace }}/{{ deploy_conf.image_name }}:{{ image_tag }}"
         imagePullPolicy: IfNotPresent
         ports:
         - name: web
