@@ -2,4 +2,4 @@ deploy_configs:
   kukaplatform:
     image_name: kukaplatform
     replicas: 1
-    server_port: 18023
+    server_port: 18066
