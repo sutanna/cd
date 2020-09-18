@@ -19,3 +19,11 @@ deploy_configs:
     image_name: economicsui
     replicas: 1
     server_port: 8028
+  admin-ecmemberserverside:
+    image_name: admin-ecmemberserverside
+    replicas: 1
+    server_port: 8080
+  html-ecmemberserverside:
+    image_name: html-ecmemberserverside
+    replica: 1
+    server_port: 80
