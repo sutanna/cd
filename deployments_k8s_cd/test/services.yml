@@ -25,5 +25,5 @@ deploy_configs:
     server_port: 8080
   htmlecmemberserverside:
     image_name: htmlecmemberserverside
-    replica: 1
+    replicas: 1
     server_port: 80
