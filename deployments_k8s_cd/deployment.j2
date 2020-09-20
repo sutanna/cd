@@ -63,9 +63,9 @@ spec:
             port: web
           initialDelaySeconds: {{ deploy_conf.readiness_initial_delay | default(80) }}
           periodSeconds: {{ deploy_conf.readiness_period | default(30) }}
-        livenessProbe:
-          tcpSocket:
-            port: web
-          initialDelaySeconds: {{ deploy_conf.liveness_initial_delay | default(80) }}
-          periodSeconds: {{ deploy_conf.liveness_period | default(30) }}
+        #livenessProbe:
+         # tcpSocket:
+         #   port: web
+         # initialDelaySeconds: {{ deploy_conf.liveness_initial_delay | default(80) }}
+         # periodSeconds: {{ deploy_conf.liveness_period | default(30) }}
 {% endif %}
