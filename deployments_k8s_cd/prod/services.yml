@@ -1,2 +1,29 @@
 deploy_configs:
-    
+  kukaplatform:
+    image_name: kukaplatform
+    replicas: 1
+    server_port: 18066
+  ruijie:
+    image_name: ruijie
+    replicas: 1
+    server_port: 8208
+  hublot:
+    image_name: hublot
+    replicas: 1
+    server_port: 18069
+  rjmarketing:
+    image_name: rjmarketing
+    replicas: 1
+    server_port: 8207
+  economicsui:
+    image_name: economicsui
+    replicas: 1
+    server_port: 8028
+  adminecmemberserverside:
+    image_name: adminecmemberserverside
+    replicas: 1
+    server_port: 8080
+  htmlecmemberserverside:
+    image_name: htmlecmemberserverside
+    replicas: 1
+    server_port: 80
