@@ -27,3 +27,19 @@ deploy_configs:
     image_name: htmlecmemberserverside
     replicas: 1
     server_port: 80
+  appecmemberserverside:
+    image_name: appecmemberserverside
+    replicas: 1
+    server_port: 8080
+  devecmemberserverside:
+    image_name: devecmemberserverside
+    replicas: 1
+    server_port: 80
+  sam:
+    image_name: sam
+    replicas: 1
+    server_port: 8102
+  diageojdorder:
+    image_name: diageojdorder
+    replicas: 1
+    server_port: 8143
