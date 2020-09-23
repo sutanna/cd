@@ -31,3 +31,7 @@ deploy_configs:
     image_name: sam
     replicas: 1
     server_port: 8102
+  diageojdorder:
+    image_name: diageojdorder
+    replicas: 1
+    server_port: 8143
