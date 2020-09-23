@@ -27,3 +27,7 @@ deploy_configs:
     image_name: htmlecmemberserverside
     replicas: 1
     server_port: 80
+  sam:
+    image_name: sam
+    replicas: 1
+    server_port: 8102
