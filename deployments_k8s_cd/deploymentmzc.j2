@@ -23,7 +23,6 @@ spec:
       - name: data-volume
         hostPath:
           path: /data/upload/ecmember
-          type: DirectoryOrCreate
       - name: tmp-volume
         hostPath:
           path: /opt/tmp
@@ -54,6 +53,8 @@ spec:
           name: tmp-volume
         - mountPath: /tmp
           name: tmp-volume
+        - mountPath: /data/upload/ecmember
+          name: date-volume
         resources:
           requests:
             #memory: "{{ requests_memory | default('1024Mi') }}"
