@@ -39,6 +39,11 @@ deploy_configs:
     image_name: sam
     replicas: 1
     server_port: 8102
+    requests_cpu: 1000m
+    limits_cpu: 4000m
+    requests_memory: 2048Mi
+    limits_memory: 4096Mi
+
   diageojdorder:
     image_name: diageojdorder
     replicas: 1
