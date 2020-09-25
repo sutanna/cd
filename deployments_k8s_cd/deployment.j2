@@ -53,10 +53,10 @@ spec:
         resources:
           requests:
             memory: "{{ requests_memory | default('1024Mi') }}"
-            cpu: "{{ requests_cpu | default('500m') }}"
+            cpu: "{{ requests_cpu | default('300m') }}"
           limits:
-            memory: "{{ limits_memory | default('1024Mi') }}"
-            cpu: "{{ limits_cpu | default('1000m') }}"
+            memory: "{{ limits_memory | default('2048Mi') }}"
+            cpu: "{{ limits_cpu | default('500m') }}"
 {% if (deploy_conf.no_health_check is undefined) or (deploy_conf.no_health_check == False) %}
         readinessProbe:
           tcpSocket:
