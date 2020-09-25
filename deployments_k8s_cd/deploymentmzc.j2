@@ -21,8 +21,9 @@ spec:
           path: /opt/log/stash
           type: DirectoryOrCreate
       - name: date-volume
-        hostPath:
-          path: /data/upload/ecmember
+        nfs:
+          server: 10.0.35.85
+          path: "/data/upload/ecmember"
       - name: tmp-volume
         hostPath:
           path: /opt/tmp
