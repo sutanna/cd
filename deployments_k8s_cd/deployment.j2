@@ -52,11 +52,11 @@ spec:
           name: tmp-volume
         resources:
           requests:
-            memory: "{{ deploy_conf.requests_memory  }}"
-            cpu: "{{ deploy_conf.requests_cpu  }}"
+            memory: "{{ deploy_conf.requests_memory | default(0) }}"
+            cpu: "{{ deploy_conf.requests_cpu | default(0) }}"
           limits:
-            memory: "{{ deploy_conf.limits_memory  }}"
-            cpu: "{{ deploy_conf.limits_cpu  }}"
+            memory: "{{ deploy_conf.limits_memory | default(0) }}"
+            cpu: "{{ deploy_conf.limits_cpu | default(0)  }}"
 {% if (deploy_conf.no_health_check is undefined) or (deploy_conf.no_health_check == False) %}
         readinessProbe:
           tcpSocket:
