@@ -47,3 +47,7 @@ deploy_configs:
     image_name: uowm2coupon
     replicas: 1
     server_port: 29036
+  youzanorderrt:
+    image_name: youzanorderrt
+    replicas: 1
+    server_port: 8902
