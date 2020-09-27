@@ -55,3 +55,7 @@ deploy_configs:
     image_name: qimenordertmallorderplugin
     replicas: 1
     server_port: 8109
+  kukahomescrmadminplugin:
+    image_name: kukahomescrmadminplugin
+    replicas: 1
+    server_port: 8070
