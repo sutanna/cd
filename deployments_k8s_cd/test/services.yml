@@ -59,3 +59,7 @@ deploy_configs:
     image_name: kukahomescrmadminplugin
     replicas: 1
     server_port: 8070
+  kukahomekukahomeadmin:
+    image_name: kukahomekukahomeadmin
+    replicas: 1
+    server_port: 8100
