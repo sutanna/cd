@@ -7,10 +7,19 @@ deploy_configs:
     image_name: ruijie
     replicas: 1
     server_port: 8208
+    requests_cpu: 300m
+    limits_cpu: 1000m
+    requests_memory: 500Mi
+    limits_memory: 1024Mi
   hublot:
     image_name: hublot
     replicas: 1
     server_port: 18069
+    requests_cpu: 300m
+    limits_cpu: 1000m
+    requests_memory: 500Mi
+    limits_memory: 1024Mi
+
   rjmarketing:
     image_name: rjmarketing
     replicas: 1
@@ -43,8 +52,11 @@ deploy_configs:
     limits_cpu: 4000m
     requests_memory: 2048Mi
     limits_memory: 4096Mi
-
   diageojdorder:
     image_name: diageojdorder
     replicas: 1
     server_port: 8143
+    requests_cpu: 300m
+    limits_cpu: 1000m
+    requests_memory: 500Mi
+    limits_memory: 1024Mi
