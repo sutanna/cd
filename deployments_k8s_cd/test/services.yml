@@ -51,3 +51,7 @@ deploy_configs:
     image_name: youzanorderrt
     replicas: 1
     server_port: 8902
+  qimenordertmallorderplugin:
+    image_name: qimenordertmallorderplugin
+    replicas: 1
+    server_port: 8109
