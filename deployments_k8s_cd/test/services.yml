@@ -63,3 +63,7 @@ deploy_configs:
     image_name: kukahomekukahomeadmin
     replicas: 1
     server_port: 8100
+  demoautocustomer:
+    image_name: demoautocustomer
+    replicas: 1
+    server_port: 8012
