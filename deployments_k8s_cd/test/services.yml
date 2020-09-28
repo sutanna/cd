@@ -67,3 +67,7 @@ deploy_configs:
     image_name: demoautocustomer
     replicas: 1
     server_port: 8012
+  kukahomescrmweb:
+    image_name: kukahomescrmweb
+    replicas: 1
+    server_port: 8050
