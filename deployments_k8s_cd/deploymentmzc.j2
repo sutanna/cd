@@ -58,11 +58,11 @@ spec:
           name: date-volume
         resources:
           requests:
-            memory: "{{ requests_memory | default('500Mi') }}"
-            cpu: "{{ requests_cpu | default('300m') }}"
+            memory: "{{ deploy_conf.requests_memory | default('0') }}"
+            cpu: "{{ deploy_conf.requests_cpu | default('0') }}"
           limits:
-            memory: "{{ limits_memory | default('1024Mi') }}"
-            cpu: "{{ limits_cpu | default('500m') }}"
+            memory: "{{ deploy_conf.limits_memory | default('0') }}"
+            cpu: "{{ deploy_conf.limits_cpu | default('0') }}"
 {% if (deploy_conf.no_health_check is undefined) or (deploy_conf.no_health_check == False) %}
         readinessProbe:
           tcpSocket:
