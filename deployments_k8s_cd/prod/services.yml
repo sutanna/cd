@@ -3,7 +3,7 @@ deploy_configs:
     image_name: kukaplatform
     replicas: 1
     server_port: 18066
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -11,15 +11,15 @@ deploy_configs:
     image_name: ruijie
     replicas: 1
     server_port: 8208
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
-    limits_memory: 2048Mi
+    limits_memory: 3072Mi
   hublot:
     image_name: hublot
     replicas: 1
     server_port: 18069
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -27,7 +27,7 @@ deploy_configs:
     image_name: rjmarketing
     replicas: 1
     server_port: 8207
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -59,7 +59,7 @@ deploy_configs:
     image_name: sam
     replicas: 1
     server_port: 8102
-    requests_cpu: 1000m
+    requests_cpu: 0
     limits_cpu: 3000m
     requests_memory: 500Mi
     limits_memory: 4096Mi
@@ -67,7 +67,7 @@ deploy_configs:
     image_name: diageojdorder
     replicas: 1
     server_port: 8143
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -75,7 +75,7 @@ deploy_configs:
     image_name: uowm2coupon
     replicas: 1
     server_port: 29036
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -83,7 +83,7 @@ deploy_configs:
     image_name: youzanorderrt
     replicas: 1
     server_port: 8902
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -91,7 +91,7 @@ deploy_configs:
     image_name: qimenordertmallorderplugin
     replicas: 1
     server_port: 8109
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -99,7 +99,7 @@ deploy_configs:
     image_name: kukahomescrmadminplugin
     replicas: 1
     server_port: 8070
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -107,7 +107,7 @@ deploy_configs:
     image_name: kukahomekukahomeadmin
     replicas: 1
     server_port: 8100
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -115,7 +115,7 @@ deploy_configs:
     image_name: demoautocustomer
     replicas: 1
     server_port: 8012
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
@@ -123,7 +123,7 @@ deploy_configs:
     image_name: kukahomescrmweb
     replicas: 1
     server_port: 8050
-    requests_cpu: 500m
+    requests_cpu: 0
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
