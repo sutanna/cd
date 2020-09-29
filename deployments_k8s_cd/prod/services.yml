@@ -3,31 +3,42 @@ deploy_configs:
     image_name: kukaplatform
     replicas: 1
     server_port: 18066
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
   ruijie:
     image_name: ruijie
     replicas: 1
     server_port: 8208
-    requests_cpu: 300m
-    limits_cpu: 1000m
+    requests_cpu: 500m
+    limits_cpu: 2000m
     requests_memory: 500Mi
-    limits_memory: 1024Mi
+    limits_memory: 2048Mi
   hublot:
     image_name: hublot
     replicas: 1
     server_port: 18069
-    requests_cpu: 300m
-    limits_cpu: 1000m
+    requests_cpu: 500m
+    limits_cpu: 2000m
     requests_memory: 500Mi
-    limits_memory: 1024Mi
-
+    limits_memory: 2048Mi
   rjmarketing:
     image_name: rjmarketing
     replicas: 1
     server_port: 8207
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
   economicsui:
     image_name: economicsui
     replicas: 1
     server_port: 8028
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 500Mi
+    limits_memory: 4096Mi
   adminecmemberserverside:
     image_name: adminecmemberserverside
     replicas: 1
@@ -49,14 +60,70 @@ deploy_configs:
     replicas: 1
     server_port: 8102
     requests_cpu: 1000m
-    limits_cpu: 4000m
-    requests_memory: 2048Mi
+    limits_cpu: 3000m
+    requests_memory: 500Mi
     limits_memory: 4096Mi
   diageojdorder:
     image_name: diageojdorder
     replicas: 1
     server_port: 8143
-    requests_cpu: 300m
-    limits_cpu: 1000m
+    requests_cpu: 500m
+    limits_cpu: 2000m
     requests_memory: 500Mi
-    limits_memory: 1024Mi
+    limits_memory: 2048Mi
+  uowm2coupon:
+    image_name: uowm2coupon
+    replicas: 1
+    server_port: 29036
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
+  youzanorderrt:
+    image_name: youzanorderrt
+    replicas: 1
+    server_port: 8902
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
+  qimenordertmallorderplugin:
+    image_name: qimenordertmallorderplugin
+    replicas: 1
+    server_port: 8109
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
+  kukahomescrmadminplugin:
+    image_name: kukahomescrmadminplugin
+    replicas: 1
+    server_port: 8070
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
+  kukahomekukahomeadmin:
+    image_name: kukahomekukahomeadmin
+    replicas: 1
+    server_port: 8100
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
+  demoautocustomer:
+    image_name: demoautocustomer
+    replicas: 1
+    server_port: 8012
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
+  kukahomescrmweb:
+    image_name: kukahomescrmweb
+    replicas: 1
+    server_port: 8050
+    requests_cpu: 500m
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
