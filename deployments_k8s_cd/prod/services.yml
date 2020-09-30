@@ -127,3 +127,11 @@ deploy_configs:
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
+  kukahomescrminteraction:
+    image_name: kukahomescrminteraction
+    replicas: 1
+    server_port: 8008
+    requests_cpu: 0
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
