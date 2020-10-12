@@ -40,7 +40,7 @@ spec:
       containers:
       - name: "{{ service_name }}"
         image: "nexus.xsio.cn/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - name: web
           containerPort: {{ service_port }}
