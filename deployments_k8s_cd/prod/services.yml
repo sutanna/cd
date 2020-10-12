@@ -62,7 +62,7 @@ deploy_configs:
     requests_cpu: 0
     limits_cpu: 3000m
     requests_memory: 500Mi
-    limits_memory: 4096Mi
+    limits_memory: 0
   diageojdorder:
     image_name: diageojdorder
     replicas: 1
