@@ -75,3 +75,7 @@ deploy_configs:
     image_name: kukahomescrminteraction
     replicas: 1
     server_port: 8008
+  cfb:
+    image_name: cfb-cfb
+    replicas: 1
+    server_port: 18123
