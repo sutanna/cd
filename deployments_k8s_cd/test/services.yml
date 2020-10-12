@@ -2,4 +2,76 @@ deploy_configs:
   kukaplatform:
     image_name: kukaplatform
     replicas: 1
-    server_port: 18023
+    server_port: 18066
+  ruijie:
+    image_name: ruijie
+    replicas: 1
+    server_port: 8208
+  hublot:
+    image_name: hublot
+    replicas: 1
+    server_port: 18069
+  rjmarketing:
+    image_name: rjmarketing
+    replicas: 1
+    server_port: 8207
+  economicsui:
+    image_name: economicsui
+    replicas: 1
+    server_port: 8028
+  adminecmemberserverside:
+    image_name: adminecmemberserverside
+    replicas: 1
+    server_port: 8080
+  htmlecmemberserverside:
+    image_name: htmlecmemberserverside
+    replicas: 1
+    server_port: 80
+  appecmemberserverside:
+    image_name: appecmemberserverside
+    replicas: 1
+    server_port: 8080
+  devecmemberserverside:
+    image_name: devecmemberserverside
+    replicas: 1
+    server_port: 80
+  sam:
+    image_name: sam
+    replicas: 1
+    server_port: 8102
+  diageojdorder:
+    image_name: diageojdorder
+    replicas: 1
+    server_port: 8143
+  uowm2coupon:
+    image_name: uowm2coupon
+    replicas: 1
+    server_port: 29036
+  youzanorderrt:
+    image_name: youzanorderrt
+    replicas: 1
+    server_port: 8902
+  qimenordertmallorderplugin:
+    image_name: qimenordertmallorderplugin
+    replicas: 1
+    server_port: 8109
+  kukahomescrmadminplugin:
+    image_name: kukahomescrmadminplugin
+    replicas: 1
+    server_port: 8070
+  kukahomekukahomeadmin:
+    image_name: kukahomekukahomeadmin
+    replicas: 1
+    server_port: 8100
+  demoautocustomer:
+    image_name: demoautocustomer
+    replicas: 1
+    server_port: 8012
+  kukahomescrmweb:
+    image_name: kukahomescrmweb
+    replicas: 1
+    server_port: 8050
+  kukahomescrminteraction:
+    image_name: kukahomescrminteraction
+    replicas: 1
+    server_port: 8008

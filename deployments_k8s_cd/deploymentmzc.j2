@@ -20,6 +20,10 @@ spec:
         hostPath:
           path: /opt/log/stash
           type: DirectoryOrCreate
+      - name: date-volume
+        nfs:
+          server: 10.0.35.85
+          path: "/data/upload/ecmember"
       - name: tmp-volume
         hostPath:
           path: /opt/tmp
@@ -50,13 +54,15 @@ spec:
           name: tmp-volume
         - mountPath: /tmp
           name: tmp-volume
+        - mountPath: /data/upload/ecmember
+          name: date-volume
         resources:
           requests:
-            memory: "{{ deploy_conf.requests_memory | default(0) }}"
-            cpu: "{{ deploy_conf.requests_cpu | default(0) }}"
+            memory: "{{ deploy_conf.requests_memory | default('0') }}"
+            cpu: "{{ deploy_conf.requests_cpu | default('0') }}"
           limits:
-            memory: "{{ deploy_conf.limits_memory | default(0) }}"
-            cpu: "{{ deploy_conf.limits_cpu | default(0)  }}"
+            memory: "{{ deploy_conf.limits_memory | default('0') }}"
+            cpu: "{{ deploy_conf.limits_cpu | default('0') }}"
 {% if (deploy_conf.no_health_check is undefined) or (deploy_conf.no_health_check == False) %}
         readinessProbe:
           tcpSocket:

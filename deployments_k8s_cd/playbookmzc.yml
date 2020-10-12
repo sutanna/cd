@@ -13,4 +13,4 @@
       set_fact:
         server_port: "{{deploy_configs[service_name].server_port}}"
     - name: deploy normal service
-      include_tasks: ./deploy_stateless.yml
+      include_tasks: ./deploy_statelessmzc.yml
