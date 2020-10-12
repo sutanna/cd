@@ -143,3 +143,11 @@ deploy_configs:
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
+  safinstant:
+    image_name: safinstant-safinstant
+    replicas: 1
+    server_port: 8309
+    requests_cpu: 0
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
