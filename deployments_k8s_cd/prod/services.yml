@@ -135,3 +135,11 @@ deploy_configs:
     limits_cpu: 2000m
     requests_memory: 500Mi
     limits_memory: 2048Mi
+  cfb:
+    image_name: cfb-cfb
+    replicas: 1
+    server_port: 18123
+    requests_cpu: 0
+    limits_cpu: 2000m
+    requests_memory: 500Mi
+    limits_memory: 2048Mi
