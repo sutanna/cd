@@ -27,7 +27,7 @@ spec:
       containers:
       - name: "{{ service_name }}"
         image: "192.168.217.70:5102/{{ namespace }}/{{ deploy_conf.image_name }}:{{ image_tag }}"
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - name: web
           containerPort: {{ server_port }}
