@@ -13,9 +13,9 @@ pipeline {
     }
     agent {
         docker {
-            image 'registry-vpc.cn-hangzhou.aliyuncs.com/beingmate_scrm/jenkins-taskrunner:test'
+            image 'nexus.xsio.cn/jenkins-taskrunner:test'
             alwaysPull true
-            args "-v /root/.ssh:/root/.ssh -v /root/.bym${deploy_env}:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
+            args "-u 0:0 -v /opt/jenkins/.ssh:/root/.ssh -v /opt/jenkins/.kube:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp"
         }
     }
     
