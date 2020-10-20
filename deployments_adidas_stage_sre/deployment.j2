@@ -40,7 +40,7 @@ spec:
           type: DirectoryOrCreate
       containers:
       - name: "{{ service_name }}"
-        image: "registry-vpc.cn-hangzhou.aliyuncs.com/beingmate_scrm/{{ image_name }}:{{ image_tag }}"
+        image: "nexus.xsio.cn/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
         imagePullPolicy: Always
         ports:
         - name: web
