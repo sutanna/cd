@@ -42,11 +42,6 @@ spec:
         env:
         - name: version
           value: "{{ image_tag }}"
-        envFrom:
-        - configMapRef:
-            name: global-config
-        - configMapRef:
-            name: "{{ service_name }}-config"
         volumeMounts:
         - mountPath: /opt/log/stash
           name: log-volume
