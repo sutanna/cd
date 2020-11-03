@@ -167,3 +167,11 @@ deploy_configs:
     limits_cpu: 3000m
     requests_memory: 0
     limits_memory: 4096Mi
+  misumiwebhook:
+    image_name: misumiwebhook
+    replicas: 1
+    server_port: 18081
+    requests_cpu: 0
+    limits_cpu: 3000m
+    requests_memory: 0
+    limits_memory: 4096Mi
