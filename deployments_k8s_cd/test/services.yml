@@ -79,3 +79,7 @@ deploy_configs:
     image_name: cfb-cfb
     replicas: 1
     server_port: 18123
+  misumiwebhook:
+    image_name: misumiwebhook
+    replicas: 1
+    server_port: 18081
