@@ -54,7 +54,7 @@ spec:
           name: tmp-volume
         resources:
           requests:
-            memory: "{{ requests_memory | default('2048Mi') }}"
+            memory: "{{ requests_memory | default('512Mi') }}"
             cpu: "{{ requests_cpu | default('125m') }}"
           limits:
             memory: "{{ limits_memory | default('4096Mi') }}"
