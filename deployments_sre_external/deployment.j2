@@ -55,10 +55,10 @@ spec:
         resources:
           requests:
             memory: "{{ requests_memory | default('512Mi') }}"
-            cpu: "{{ requests_cpu | default('125m') }}"
+            cpu: "{{ requests_cpu | default('200m') }}"
           limits:
             memory: "{{ limits_memory | default('4096Mi') }}"
-            cpu: "{{ limits_cpu | default('1000m') }}"
+            cpu: "{{ limits_cpu | default('2000m') }}"
 {% if (no_health_check is undefined) or (no_health_check == False) %}
         readinessProbe:
           httpGet:
