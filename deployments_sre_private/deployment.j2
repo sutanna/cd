@@ -72,7 +72,7 @@ spec:
 {% if (no_health_check is undefined) or (no_health_check == False) %}
         readinessProbe:
           httpGet:
-            path: /ping
+            path: {{ readiness_httpget_path | default('/ping') }}
             port: web
           initialDelaySeconds: {{ readiness_initial_delay | default(60) }}
           periodSeconds: {{ readiness_period | default(30) }}
