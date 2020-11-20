@@ -39,7 +39,7 @@ spec:
           type: DirectoryOrCreate
       containers:
       - name: "{{ service_name }}"
-        {% if server_name == "appui" %}
+        {% if service_name == "appui" %}
         image: "nexus.xsio.cn/1.81-bmw/appui:20201111"
         imagePullPolicy: IfNotPresent
         {% else %}
