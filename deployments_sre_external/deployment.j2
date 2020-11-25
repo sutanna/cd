@@ -13,11 +13,8 @@ spec:
       labels:
         app: "{{ service_name }}"
     spec:
-      tolerations:
-        - key: "pluginNS"
-          operator: "Equal"
-          value: "{{ namespace }}"
-          effect: "NoExecute"
+      nodeSelector:
+          pluginNS: {{ namespace }}
       imagePullSecrets:
       - name: xsio-registry-secret
       volumes:
