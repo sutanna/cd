@@ -82,8 +82,27 @@ pipeline {
                         def targetUrl = "${notify_url}"
                         def buildUrl = build.absoluteUrl
                         def buildNumber = build.number
+    
+                        finally{
 
-                       
+                        def targetUrl = "${notify_url}"
+                        def buildUrl = build.absoluteUrl
+                        def buildNumber = build.number
+
+                        httpRequest url: targetUrl, contentType: 'APPLICATION_JSON', httpMode: 'POST', responseHandle: 'NONE', timeout: 30, requestBody: """
+                        {
+                            "build":{
+                                parameters:{
+                                    "service_name":"${service_name}",
+                                    "component_version":"${component_version}",
+                                    "deploy_env":"${deploy_env}"
+                                },
+                                "number":"${buildNumber}",
+                                "full_url":"${buildUrl}",
+                                "phase": "FINALIZED"
+                                }
+                        }
+                        """
                     }
                 }
             }
