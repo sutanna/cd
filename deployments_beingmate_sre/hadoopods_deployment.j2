@@ -74,9 +74,9 @@ spec:
       - ip: "192.168.11.174"
         hostnames:
         - "prodvpc-hadoop07"
-      - ip: "192.168.11.175"
+      - ip: "10.20.104.17"
         hostnames:
-        - "prodvpc-hadoop08"
+        - "scrmprdbigdata01"
       containers:
       - name: "{{ service_name }}"
         image: "registry-vpc.cn-hangzhou.aliyuncs.com/beingmate_scrm/{{ image_name }}:{{ image_tag }}"
