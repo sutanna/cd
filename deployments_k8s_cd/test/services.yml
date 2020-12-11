@@ -87,3 +87,7 @@ deploy_configs:
     image_name: harmayadaptor
     replicas: 1
     server_port: 29004
+  smspluginaokang:
+    image_name: smspluginaokang
+    replicas: 1
+    server_port: 8261
