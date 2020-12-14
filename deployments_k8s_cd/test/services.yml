@@ -91,3 +91,9 @@ deploy_configs:
     image_name: smspluginaokang
     replicas: 1
     server_port: 8261
+  baiboadaptor:
+    image_name: baiboadaptor
+    replicas: 1
+    server_port: 18023
+    
+    
