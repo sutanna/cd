@@ -55,7 +55,7 @@ spec:
             memory: "{{ deploy_conf.requests_memory | default(0) }}"
             cpu: "{{ deploy_conf.requests_cpu | default(0) }}"
           limits:
-            memory: "{{ deploy_conf.limits_memory | default('4GB') }}"
+            memory: "{{ deploy_conf.limits_memory | default(4G) }}"
             cpu: "{{ deploy_conf.limits_cpu | default(4)  }}"
 {% if (deploy_conf.no_health_check is undefined) or (deploy_conf.no_health_check == False) %}
         readinessProbe:
