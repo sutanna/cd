@@ -52,8 +52,8 @@ spec:
           name: tmp-volume
         resources:
           requests:
-            memory: "{{ deploy_conf.requests_memory | default('500Mi') }}"
-            cpu: "{{ deploy_conf.requests_cpu | default('100m') }}"
+            memory: "{{ deploy_conf.requests_memory | default(0) }}"
+            cpu: "{{ deploy_conf.requests_cpu | default(0) }}"
           limits:
             memory: "{{ deploy_conf.limits_memory | default('4Gi') }}"
             cpu: "{{ deploy_conf.limits_cpu | default('4000m')  }}"
