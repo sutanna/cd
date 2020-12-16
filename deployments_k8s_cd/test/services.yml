@@ -95,5 +95,9 @@ deploy_configs:
     image_name: baiboadaptor
     replicas: 1
     server_port: 18023
+  captialanddemo:
+    image_name: captialanddemo
+    replicas: 1
+    server_port: 18023
     
     
