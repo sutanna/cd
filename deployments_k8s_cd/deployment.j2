@@ -55,8 +55,8 @@ spec:
             memory: "{{ deploy_conf.requests_memory | default('500Mi') }}"
             cpu: "{{ deploy_conf.requests_cpu | default('100m') }}"
           limits:
-            memory: "{{ deploy_conf.limits_memory | default('2Gi') }}"
-            cpu: "{{ deploy_conf.limits_cpu | default('2000m')  }}"
+            memory: "{{ deploy_conf.limits_memory | default('3Gi') }}"
+            cpu: "{{ deploy_conf.limits_cpu | default('3000m')  }}"
 {% if (deploy_conf.no_health_check is undefined) or (deploy_conf.no_health_check == False) %}
         readinessProbe:
           tcpSocket:
