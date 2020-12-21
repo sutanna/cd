@@ -99,5 +99,9 @@ deploy_configs:
     image_name: captialanddemo
     replicas: 1
     server_port: 18023
+  pernodricard-wechatadapter:
+    image_name: pernodricard-wechatadapter
+    replicas: 1
+    server_port: 18023
     
     
