@@ -107,5 +107,8 @@ deploy_configs:
     image_name: hondadms-datainterchange
     replicas: 1
     server_port: 18023
-        
+  pernodricard-wechatadapterui:
+    image_name: pernodricard-wechatadapterui
+    replicas: 1
+    server_port: 18023        
     
