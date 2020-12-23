@@ -111,4 +111,11 @@ deploy_configs:
     image_name: pernodricard-wechatadapterui
     replicas: 1
     server_port: 18023        
+  aokangplugincoupon:
+    image_name: aokangplugincoupon
+    replicas: 1
+    server_port: 18023        
+    
+    
+    
     
