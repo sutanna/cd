@@ -175,3 +175,35 @@ deploy_configs:
     limits_cpu: 3000m
     requests_memory: 0
     limits_memory: 4096Mi
+  harmayadaptor:
+    image_name: harmayadaptor
+    replicas: 1
+    server_port: 29004
+  smspluginaokang:
+    image_name: smspluginaokang
+    replicas: 1
+    server_port: 8261
+  baiboadaptor:
+    image_name: baiboadaptor
+    replicas: 1
+    server_port: 18023
+  captialanddemo:
+    image_name: captialanddemo
+    replicas: 1
+    server_port: 18023
+  pernodricard-wechatadapter:
+    image_name: pernodricard-wechatadapter
+    replicas: 1
+    server_port: 18023
+  hondadms-datainterchange:
+    image_name: hondadms-datainterchange
+    replicas: 1
+    server_port: 18023
+  pernodricard-wechatadapterui:
+    image_name: pernodricard-wechatadapterui
+    replicas: 1
+    server_port: 18023        
+  aokangplugincoupon:
+    image_name: aokangplugincoupon
+    replicas: 1
+    server_port: 18023        
