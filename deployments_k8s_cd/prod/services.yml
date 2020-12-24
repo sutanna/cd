@@ -178,11 +178,11 @@ deploy_configs:
   harmayadaptor:
     image_name: harmayadaptor
     replicas: 1
-    server_port: 29004
+    server_port: 18023
   smspluginaokang:
     image_name: smspluginaokang
     replicas: 1
-    server_port: 8261
+    server_port: 18023
   baiboadaptor:
     image_name: baiboadaptor
     replicas: 1
