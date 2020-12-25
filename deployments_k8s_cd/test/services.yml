@@ -115,8 +115,8 @@ deploy_configs:
     image_name: aokangplugincoupon
     replicas: 1
     server_port: 18023        
-  pernodricardetl-adaptor:
-    image_name: pernodricardetl-adaptor
+  pernodricardetl-adapter:
+    image_name: pernodricardetl-adapter
     replicas: 1
     server_port: 18023       
     
