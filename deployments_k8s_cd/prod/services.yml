@@ -181,8 +181,8 @@ deploy_configs:
     server_port: 18023
     requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 3000Mi
-    limits_memory: 4096Mi
+    requests_memory: 4Gi
+    limits_memory: 6Gi
 
   smspluginaokang:
     image_name: smspluginaokang
