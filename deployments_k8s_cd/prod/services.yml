@@ -179,6 +179,11 @@ deploy_configs:
     image_name: harmayadaptor
     replicas: 1
     server_port: 18023
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 3000Mi
+    limits_memory: 4096Mi
+
   smspluginaokang:
     image_name: smspluginaokang
     replicas: 1
