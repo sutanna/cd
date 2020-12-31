@@ -183,7 +183,6 @@ deploy_configs:
     limits_cpu: 3000m
     requests_memory: 4Gi
     limits_memory: 6Gi
-
   smspluginaokang:
     image_name: smspluginaokang
     replicas: 1
