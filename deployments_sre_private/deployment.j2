@@ -39,7 +39,7 @@ spec:
           type: DirectoryOrCreate
       containers:
       - name: "{{ service_name }}"
-        image: "{{ image_repository }}/{{ service_version }}/{{ image_name }}:{{ image_tag }}"
+        image: "{{ image_repository | default('nexus.xsio.cn/' + service_version) }}/{{ image_name }}:{{ image_tag }}"
         imagePullPolicy: IfNotPresent
         ports:
         - name: web

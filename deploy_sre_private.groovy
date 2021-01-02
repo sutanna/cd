@@ -14,7 +14,7 @@ pipeline {
         string(name: 'component_name', defaultValue: '', description: '服务名称和镜像有关')
         string(name: 'component_version', defaultValue: '', description: '服务版本')
         string(name: 'deploy_env', defaultValue: '', description: '部署的namespace')
-        string(name: 'image_repository', defaultValue: 'nexus.xsio.cn', description: '镜像仓库地址')
+        string(name: 'image_repository', defaultValue: '', description: '镜像仓库地址')
         string(name: 'k8s_node', defaultValue: '', description: 'ansible要连的节点')
         string(name: 'args', defaultValue: '{}', description: '服务部署时需要的参数，如cpu核数，内存大小等')
         string(name: 'notify_url',defaultValue: '', description: '通知job状态到sre的地址')
