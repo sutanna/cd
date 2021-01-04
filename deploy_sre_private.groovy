@@ -65,9 +65,10 @@ pipeline {
                         if (!extraVars.replicas) {
                             extraVars.replicas = 1
                         }
-
+                        if (!image_repository) {
+                            extraVars.image_repository = image_repository
+                        }
                         extraVars.host = k8s_node
-                        extraVars.image_repository = image_repository
                         extraVars.namespace = deploy_env
                         extraVars.service_name = service_name
                         extraVars.service_version = component_version.substring(0, component_version.lastIndexOf('.'))
