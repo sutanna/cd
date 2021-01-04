@@ -65,7 +65,7 @@ pipeline {
                         if (!extraVars.replicas) {
                             extraVars.replicas = 1
                         }
-                        if (!image_repository) {
+                        if (image_repository) {
                             extraVars.image_repository = image_repository
                         }
                         extraVars.host = k8s_node
