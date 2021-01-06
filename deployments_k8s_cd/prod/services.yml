@@ -3,73 +3,73 @@ deploy_configs:
     image_name: kukaplatform
     replicas: 1
     server_port: 18066
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   ruijie:
     image_name: ruijie
     replicas: 1
     server_port: 8208
-    requests_cpu: 0
+    requests_cpu: 100mi
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   hublot:
     image_name: hublot
     replicas: 1
     server_port: 18069
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   rjmarketing:
     image_name: rjmarketing
     replicas: 1
     server_port: 8207
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   economicsui:
     image_name: economicsui
     replicas: 1
     server_port: 8028
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   adminecmemberserverside:
     image_name: adminecmemberserverside
     replicas: 1
     server_port: 8080
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   htmlecmemberserverside:
     image_name: htmlecmemberserverside
     replicas: 1
     server_port: 80
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   appecmemberserverside:
     image_name: appecmemberserverside
     replicas: 1
     server_port: 8080
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   devecmemberserverside:
     image_name: devecmemberserverside
     replicas: 1
     server_port: 80
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   sam:
     image_name: sam
@@ -83,97 +83,97 @@ deploy_configs:
     image_name: diageojdorder
     replicas: 1
     server_port: 8143
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   uowm2coupon:
     image_name: uowm2coupon
     replicas: 1
     server_port: 29036
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   youzanorderrt:
     image_name: youzanorderrt
     replicas: 1
     server_port: 8902
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   qimenordertmallorderplugin:
     image_name: qimenordertmallorderplugin
     replicas: 1
     server_port: 8109
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   kukahomescrmadminplugin:
     image_name: kukahomescrmadminplugin
     replicas: 1
     server_port: 8070
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   kukahomekukahomeadmin:
     image_name: kukahomekukahomeadmin
     replicas: 1
     server_port: 8100
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   demoautocustomer:
     image_name: demoautocustomer
     replicas: 1
     server_port: 8012
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   kukahomescrmweb:
     image_name: kukahomescrmweb
     replicas: 1
     server_port: 8050
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   kukahomescrminteraction:
     image_name: kukahomescrminteraction
     replicas: 1
     server_port: 8008
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   cfb:
     image_name: cfb-cfb
     replicas: 1
     server_port: 18123
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   safinstant:
     image_name: safinstant-safinstant
     replicas: 1
     server_port: 8309
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   misumiwebhook:
     image_name: misumiwebhook
     replicas: 1
     server_port: 18081
-    requests_cpu: 0
+    requests_cpu: 100m
     limits_cpu: 3000m
-    requests_memory: 0
+    requests_memory: 1500Mi
     limits_memory: 4096Mi
   harmayadaptor:
     image_name: harmayadaptor
@@ -182,41 +182,76 @@ deploy_configs:
     requests_cpu: 100m
     limits_cpu: 3000m
     requests_memory: 4Gi
-    limits_memory: 6Gi
+    limits_memory: 4Gi
   smspluginaokang:
     image_name: smspluginaokang
     replicas: 1
     server_port: 18023
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi    
   baiboadaptor:
     image_name: baiboadaptor
     replicas: 1
     server_port: 18023
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi    
   captialanddemo:
     image_name: captialanddemo
     replicas: 1
     server_port: 18023
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi    
   pernodricard-wechatadapter:
     image_name: pernodricard-wechatadapter
     replicas: 1
     server_port: 18023
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi    
   hondadms-datainterchange:
     image_name: hondadms-datainterchange
     replicas: 1
     server_port: 18023
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi    
   pernodricard-wechatadapterui:
     image_name: pernodricard-wechatadapterui
     replicas: 1
-    server_port: 18023        
+    server_port: 18023     
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi    
   aokangplugincoupon:
     image_name: aokangplugincoupon
     replicas: 1
     server_port: 18023
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi    
   aokangplugincoupon:
     image_name: aokangplugincoupon
     replicas: 1
-    server_port: 18023        
+    server_port: 18023
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi    
   pernodricardetl-adapter:
     image_name: pernodricardetl-adapter
     replicas: 1
     server_port: 18023
-
+    requests_cpu: 100m
+    limits_cpu: 3000m
+    requests_memory: 1500Mi
+    limits_memory: 4096Mi
