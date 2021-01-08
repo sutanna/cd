@@ -119,6 +119,11 @@ deploy_configs:
     image_name: pernodricardetl-adapter
     replicas: 1
     server_port: 18023       
+  diageo-upload:
+    image_name: diageo-upload
+    replicas: 1
+    server_port: 18023       
     
+        
     
     
