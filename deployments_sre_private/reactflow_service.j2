@@ -3,6 +3,9 @@ kind: Service
 metadata:
   namespace: "{{ namespace }}"
   name: "{{ service_name }}"
+  labels:
+    jmx_should_be_scraped: "true"
+    jmx_scrape_port: "7777"
 spec:
   selector:
     app: "{{ service_name }}"
