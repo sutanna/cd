@@ -190,7 +190,7 @@ deploy_configs:
     requests_cpu: 100m
     limits_cpu: 3000m
     requests_memory: 1500Mi
-    limits_memory: 4096Mi    
+    limits_memory: 4096Mi
   baiboadaptor:
     image_name: baiboadaptor
     replicas: 1
@@ -198,7 +198,7 @@ deploy_configs:
     requests_cpu: 100m
     limits_cpu: 3000m
     requests_memory: 1500Mi
-    limits_memory: 4096Mi    
+    limits_memory: 4096Mi
   captialanddemo:
     image_name: captialanddemo
     replicas: 1
@@ -206,7 +206,7 @@ deploy_configs:
     requests_cpu: 100m
     limits_cpu: 3000m
     requests_memory: 1500Mi
-    limits_memory: 4096Mi    
+    limits_memory: 4096Mi
   pernodricard-wechatadapter:
     image_name: pernodricard-wechatadapter
     replicas: 1
@@ -214,7 +214,7 @@ deploy_configs:
     requests_cpu: 100m
     limits_cpu: 3000m
     requests_memory: 1500Mi
-    limits_memory: 4096Mi    
+    limits_memory: 4096Mi
   hondadms-datainterchange:
     image_name: hondadms-datainterchange
     replicas: 1
@@ -222,7 +222,7 @@ deploy_configs:
     requests_cpu: 100m
     limits_cpu: 3000m
     requests_memory: 1500Mi
-    limits_memory: 4096Mi    
+    limits_memory: 4096Mi
   pernodricard-wechatadapterui:
     image_name: pernodricard-wechatadapterui
     replicas: 1
@@ -230,7 +230,7 @@ deploy_configs:
     requests_cpu: 100m
     limits_cpu: 3000m
     requests_memory: 1500Mi
-    limits_memory: 4096Mi    
+    limits_memory: 4096Mi
   aokangplugincoupon:
     image_name: aokangplugincoupon
     replicas: 1
@@ -238,7 +238,7 @@ deploy_configs:
     requests_cpu: 100m
     limits_cpu: 3000m
     requests_memory: 1500Mi
-    limits_memory: 4096Mi    
+    limits_memory: 4096Mi
   pernodricardetl-adapter:
     image_name: pernodricardetl-adapter
     replicas: 1
