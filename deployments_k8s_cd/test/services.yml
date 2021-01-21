@@ -110,19 +110,23 @@ deploy_configs:
   pernodricard-wechatadapterui:
     image_name: pernodricard-wechatadapterui
     replicas: 1
-    server_port: 18023        
+    server_port: 18023
   aokangplugincoupon:
     image_name: aokangplugincoupon
     replicas: 1
-    server_port: 18023        
+    server_port: 18023
   pernodricardetl-adapter:
     image_name: pernodricardetl-adapter
     replicas: 1
-    server_port: 18023       
+    server_port: 18023
   diageo-upload:
     image_name: diageo-upload
     replicas: 1
-    server_port: 18023       
+    server_port: 18023
+  genokon-wechat:
+    image_name: genokon-wechat
+    replicas: 1
+    server_port: 18023
     
         
     
