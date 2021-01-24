@@ -29,10 +29,10 @@ spec:
       imagePullSecrets:
       - name: xsio-registry-secret
       volumes:
-       - name: kerbose
-         secret:
-           defaultMode: 0644
-           secretName: kerbose-auth
+      - name: kerbose
+        secret:
+          defaultMode: 0644
+          secretName: kerbose-auth
       - name: log-volume
         hostPath:
           path: /opt/log/stash
