@@ -131,6 +131,10 @@ deploy_configs:
     image_name: genokon-wechatui
     replicas: 1
     server_port: 18023
+  fila-adapter:
+    image_name: fila-adapter
+    replicas: 1
+    server_port: 18023
         
         
     
