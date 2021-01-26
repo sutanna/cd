@@ -127,7 +127,11 @@ deploy_configs:
     image_name: genokon-wechat
     replicas: 1
     server_port: 18023
-    
+  genokon-wechatui:
+    image_name: genokon-wechatui
+    replicas: 1
+    server_port: 18023
+        
         
     
     
