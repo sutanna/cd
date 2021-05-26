@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: mongo
-  namespace: test
-spec:
-  type: ExternalName
-  externalName: dds-bp1c84a505363c241523.mongodb.rds.aliyuncs.com
