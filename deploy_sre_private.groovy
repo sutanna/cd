@@ -4,8 +4,6 @@ import org.codehaus.groovy.control.messages.ExceptionMessage
 pipeline {
     agent {
         docker {
-            image 'nexus.xsio.cn/jenkins-taskrunner:test'
-            alwaysPull true
 	    args "-v /root/.ssh:/root/.ssh -v /root/.kube:/root/.kube -v /tmp/k8s/${deploy_env}:/tmp ${extra_vars}"
         }
     }
