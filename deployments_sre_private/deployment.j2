@@ -74,11 +74,11 @@ spec:
           httpGet:
             path: {{ readiness_httpget_path | default('/ping') }}
             port: web
-          initialDelaySeconds: {{ readiness_initial_delay | default(60) }}
+          initialDelaySeconds: {{ readiness_initial_delay | default(120) }}
           periodSeconds: {{ readiness_period | default(30) }}
         livenessProbe:
           tcpSocket:
             port: web
-          initialDelaySeconds: {{ liveness_initial_delay | default(60) }}
+          initialDelaySeconds: {{ liveness_initial_delay | default(120) }}
           periodSeconds: {{ liveness_period | default(30) }}
 {% endif %}
